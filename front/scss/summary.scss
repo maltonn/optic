@@ -1,0 +1,62 @@
+@import 'variables';
+
+#summary {
+  left: 0;
+  width: $summary-width;
+  background-color: $summary-bgc;
+  overflow:auto;
+  #new-slide-btn {
+    position:fixed;
+    margin: 8px;
+    left:$summary-width - 5%;
+    bottom: 0;
+  }
+  .clone-div {
+    position: relative;
+    width:25vw*$editor-scale;
+    height:25vh*$editor-scale;
+    margin: 1vw;
+    background-color: white;
+    section{
+      margin: 0;
+      transform-origin: 0 0;
+      transform: scale(0.25*$editor-scale);
+    }
+    .mask{
+      position:absolute;
+      margin: 0;
+      top:0;
+      left:0;
+      width:15vw;
+      height:15vh;
+      p{
+        position: absolute;
+        top:0;
+        bottom: 0;
+        margin: auto;
+        width:100%;
+        text-align: center;
+        height:1.5rem;
+        font-size:1.5rem
+      }
+    }
+    .mask:hover{
+    background-color: rgba(25,25,25,0);
+      outline: 5px solid red;
+    }
+  }
+}
+
+
+#summary::-webkit-scrollbar{
+  width: 10px;
+}
+#summary::-webkit-scrollbar-track{
+  background: $summary-bgc;
+  border-left: solid 1px $summary-bgc;
+}
+#summary::-webkit-scrollbar-thumb{
+  background: $summary-scroll-bgc;
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 2px $summary-bgc;
+}

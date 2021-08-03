@@ -1,0 +1,32 @@
+section{
+    transform-origin: bottom left;
+  }
+  #switch_slides_div{
+    z-index: 120;
+    position: absolute;
+    width:100%;
+    height:100%;
+  }
+  #switch_slides_div > div{
+    position: absolute;
+    width:100%;
+    height:100%;
+    transform-origin:bottom left;
+    transition-duration: 500ms;
+  }
+  #switch_slides_div > .active{
+    transform: rotate(-120deg);
+  }
+  #switch_slides_div > div:nth-child(3){
+    background-color: #1446A0;
+    transition-delay: 100ms;
+  }
+  #switch_slides_div > div:nth-child(2){
+    background-color: #DB3069;
+    transition-delay: 200ms;
+  }
+  #switch_slides_div > div:nth-child(1){
+    background-color: #F5D547;
+    transition-delay: 300ms;
+  }
+  

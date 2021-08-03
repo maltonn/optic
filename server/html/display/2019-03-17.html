@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>LINEグルにbotを入れた話</title>
+  <link rel="stylesheet" href="/css/slide.css">
+  <link rel="stylesheet" href="/css/switch.css">
+  <link rel="stylesheet" href="/css/customs/2019-03-17.css">
+</head>
+
+<body>
+  <div id="switch_slides_div">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+
+  <section id="top_slide">
+    <h2>クラスのLINEグルにbotを入れた話</h2>
+  </section>
+  <section id="getting_started">
+    <h2>vslide.tk</h2>
+    <p>コメントが送れます</p>
+    <img id="qrcode" src="https://chart.apis.google.com/chart?chs=400x400&cht=qr&chl=vslide.tk&chld=H">
+  </section>
+  <section id="intro">
+    <h1>自己紹介</h1>
+    <img id="icon" src="img/icon.png" />
+    <p class="align_left">
+      名前:Moscwa<br />
+      Twitter:@moscwa_<br />
+      使える言語:Javascript / python / CSS（チューリング完全なのでプログラミング言語と信じてる！）/Unity/node.js<br />
+      <br />
+      誰得な開発をするのが好きな普通科高校生。<br />
+      一応Web系<br>
+      でも、最近、微分を習ったので、ようやくディープラーニングを始めました。<br>
+      趣味：将棋（初段）
+    </p>
+  </section>
+  <section id="slide2">
+    <h2>作った機能</h2>
+    <ul class="actions-list">
+      <li>時間割を教えてくれる</li>
+      <li>課題を教えてくれる</li>
+      <li>テスト範囲を教えてくれる</li>
+      <li>明日の天気を教えてくれる</li>
+      <li>AIが会話してくれる</li>
+    </ul>
+  </section>
+  <section id="slide3">
+    <h2>に、加えて、</h2>
+    <ul class="actions-list">
+      <li>テスト範囲や課題を登録できる</li>
+      <li>特定のキーワードに反応するようになる</li>
+    </ul>
+  </section>
+
+  <Section id="slide4">
+    <img src="img/image1.jpg" class="full">
+  </Section>
+  <Section id="slide5">
+      <img src="img/image2.jpg" class="full">
+    </Section>
+  <Section id="slide6">
+      <img src="img/image3.jpg" class="full">
+  </Section>
+  <Section id="slide7">
+      <img src="img/image5.jpg" class="full">
+  </Section>
+  <Section id="slide8">
+      <img src="img/image4.jpg" class="full">
+  </Section>
+  <section id="slide9">
+    <img src="img/detail.png" class="full">
+  </section>
+  <section id="qrcode">
+      <img src="img/qr.png" class="full-h">
+  </section>
+  <section id="slide10">
+    <h1>で、</h1>
+  </section>
+  <section id="slide11">
+    <h2>今こう思ってます</h2>
+  </section>
+  <section id="slide12">
+    <h3>(なんで１５分枠とったんだろう・・)</h3>
+  </section>
+  <section id="slide13">
+    <h1>暇つぶし企画</h1>
+  </section>
+  <section id="slide14">
+      <h2>vslide.tk</h2>
+      <img id="qrcode" src="https://chart.apis.google.com/chart?chs=400x400&cht=qr&chl=vslide.tk&chld=H">
+      <p>もしくは、https://vote-slide.herokuapp.com/client</p>
+  </section>
+  <section id="slide15" class="vote">
+    <h2>あなたの使ってるエディタは？</h2>
+    <canvas id="chart1" width="400" height="400"></canvas>
+  </section>
+  <section id="slide16" class="vote">
+    <h2>あなたの好きなOSは？</h2>
+    <canvas id="chart2" width="400" height="400"></canvas>
+  </section>
+  <section id="slide17" class="vote">
+      <h2>あなたの所属は？</h2>
+      <canvas id="chart3" width="400" height="400"></canvas>
+  </section>
+  <section id="bake">
+    <h1>ご清聴ありがとうございました。</h1>
+  </section>
+  <div id="permanent">vslide.tk</div>
+  <div id="above1" class="above">
+      <img src="img/qr.png" class="half">
+  </div>
+  <div id="timer"></div>
+  <script>
+    var question_obj = {
+      'slide15': ['使ってるエディタは？', 'vim', 'emac', 'VSCode', 'atom', 'Sublime Text', 'その他'],
+      'slide16': ['好きなOSは？', 'Windows', 'Mac', 'Debian系（Ubuntu他）', 'RedHat系（CentOS他）', 'その他'],
+      'slide17': ['所属は？','N高生','高専生','中学生','高校生','大学生','社会人'],
+    }
+  </script>
+  <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+  <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script src="/js/slide.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+@import 'variables';
+#toolbar{
+  background-color: $toolbar-bgc;
+  height: 10%;
+  h1{
+    position: absolute;
+    margin: 8px;
+    width:50%;
+    font-size:7vh;
+  }
+  .btn{
+    float: right;
+    margin:8px;
+  }
+}

@@ -1,0 +1,68 @@
+/*
+#http://www.hp-stylelink.com/news/2013/07/20130708.php
+
+col_lst_str=input()# #e2b2c0#fff353#a5d1f4#e4ad6d#d685b0#dbe159#7fc2ef#c4a6ca#eabf4c#f9e697#b3d3ac#eac7cd
+
+var_lst=['$sidebar-bgc', '$color-selection-bgc', '$background-color-selection-bgc', '$editor-bgc', '$toolbar-bgc', '$summary-bgc', '$btn-bgc', '$btn-hover-bgc']
+col_lst=col_lst_str.split('#')
+
+print(col_lst)
+for i,var in enumerate(var_lst):
+    print(var+": #"+col_lst[i+1]+";")
+
+*/
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#main > div {
+  position: absolute;
+  top: 10%;
+  height: 90%;
+}
+
+#download-div-black {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-color: rgba(25, 25, 25, 0.5);
+}
+
+#download-div {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 20vw;
+  height: 20vh;
+  margin: auto;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+i {
+  cursor: pointer;
+}
+
+.btn {
+  background-color: #d16b16;
+  color: #eeeeee;
+}
+
+.btn:hover {
+  background-color: #d16b16;
+}
+
+/*# sourceMappingURL=style.css.map */

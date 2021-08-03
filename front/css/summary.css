@@ -1,0 +1,76 @@
+/*
+#http://www.hp-stylelink.com/news/2013/07/20130708.php
+
+col_lst_str=input()# #e2b2c0#fff353#a5d1f4#e4ad6d#d685b0#dbe159#7fc2ef#c4a6ca#eabf4c#f9e697#b3d3ac#eac7cd
+
+var_lst=['$sidebar-bgc', '$color-selection-bgc', '$background-color-selection-bgc', '$editor-bgc', '$toolbar-bgc', '$summary-bgc', '$btn-bgc', '$btn-hover-bgc']
+col_lst=col_lst_str.split('#')
+
+print(col_lst)
+for i,var in enumerate(var_lst):
+    print(var+": #"+col_lst[i+1]+";")
+
+*/
+#summary {
+  left: 0;
+  width: 17%;
+  background-color: #e5ab47;
+  overflow: auto;
+}
+#summary #new-slide-btn {
+  position: fixed;
+  margin: 8px;
+  left: 12%;
+  bottom: 0;
+}
+#summary .clone-div {
+  position: relative;
+  width: 15vw;
+  height: 15vh;
+  margin: 1vw;
+  background-color: white;
+}
+#summary .clone-div section {
+  margin: 0;
+  transform-origin: 0 0;
+  transform: scale(0.15);
+}
+#summary .clone-div .mask {
+  position: absolute;
+  margin: 0;
+  top: 0;
+  left: 0;
+  width: 15vw;
+  height: 15vh;
+}
+#summary .clone-div .mask p {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 100%;
+  text-align: center;
+  height: 1.5rem;
+  font-size: 1.5rem;
+}
+#summary .clone-div .mask:hover {
+  background-color: rgba(25, 25, 25, 0);
+  outline: 5px solid red;
+}
+
+#summary::-webkit-scrollbar {
+  width: 10px;
+}
+
+#summary::-webkit-scrollbar-track {
+  background: #e5ab47;
+  border-left: solid 1px #e5ab47;
+}
+
+#summary::-webkit-scrollbar-thumb {
+  background: #c28620;
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 2px #e5ab47;
+}
+
+/*# sourceMappingURL=summary.css.map */

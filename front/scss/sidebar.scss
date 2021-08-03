@@ -1,0 +1,103 @@
+@import 'variables';
+#sidebar{
+  left: 100% - $sidebar-width;
+  width:$sidebar-width;
+  padding: 2%;
+  background-color:$sidebar-bgc;
+  #main-tool{
+    a{
+      margin: 8px;
+    }
+  }
+  .full{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    transition-duration: 300ms;
+    padding:0;
+    box-sizing: border-box;
+    padding-top: 5%;
+    >*{
+      margin-left: 10%;
+    }
+  }
+  #color-selection,#background-color-selection,#theme-selection,#vote-edit{
+    overflow: auto;
+    transform: translateX(100%);
+    z-index: 30;
+    h4,span{
+      color:$text-color;
+    }
+  }
+  #vote-edit{
+    background-color: $vote-edit-bgc;
+    >ul{
+      border: none;
+      box-shadow:none;
+      margin-left: 0;
+      &:last-child{
+        border-bottom: 1px solid black;
+      }
+      div{
+          border: none;
+          background-color: $vote-edit-bgc;
+
+          &.collapsible-header{
+            border-top: 1px solid black;
+          }
+          &.collapsible-body{
+            padding-top: 0;
+          }
+          
+          &.input-field-div{
+            display: flex;
+            align-items: center;
+            i:hover{
+              color: red;
+            }
+          }
+          
+        }
+
+      }
+    &::-webkit-scrollbar{
+      width: 10px;
+    }
+    &::-webkit-scrollbar-track{
+      background: $vote-edit-bgc;
+      border-left: solid 1px $vote-edit-bgc;
+    }
+    &::-webkit-scrollbar-thumb{
+      background: $vote-edit-scroll-bgc;
+      border-radius: 10px;
+      box-shadow: inset 0 0 0 2px $vote-edit-bgc;
+    }
+  }
+  #color-selection{
+    background-color: $color-selection-bgc;
+  }
+  #background-color-selection{
+    background-color: $background-color-selection-bgc;
+
+  }
+
+  #theme-selection{
+    background-color: $theme-selection-bgc;
+    >div{
+      width:15vw;
+      height:15vh;
+      margin: 8px;
+      cursor: pointer;
+      >img{
+        width:100%;
+        height:100%;
+      }
+    }
+    >div:hover{
+      outline: 5px solid red;
+    }
+  }
+
+}

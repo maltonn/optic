@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>HTML Present Point</title>
+  <link rel="icon" href="icon.png" sizes="64x64" type="image/png">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/toolbar.css" />
+  <link rel="stylesheet" href="css/summary.css">
+  <link rel="stylesheet" href="css/editor.css">
+  <link rel="stylesheet" href="css/slide.css">
+  <link rel="stylesheet" href="css/sidebar.css">
+  <style id="theme_style"></style>
+</head>
+
+<body>
+  <nav id="toolbar">
+    <h1>HTML Present Point</h1>
+    <a id="export" class="waves-effect waves-light btn indigo">エクスポート</a>
+    <a id="add-p" class="waves-effect waves-light btn pink">本文を追加</a>
+    <a id="add-title" class="waves-effect waves-light btn pink">タイトルを追加</a>
+    <a id="add-vote" class="waves-effect waves-light btn green">投票を追加</a>
+  </nav>
+  <div id="main">
+    <div id="summary">
+      <a id="new-slide-btn" class="btn-floating btn-large waves-effect waves-light tooltipped red" data-position="right"
+        data-tooltip="新しくページを追加"><i class="material-icons">add</i></a>
+    </div>
+    <div id="editor"></div>
+    <div id="sidebar">
+      <div id="main-tool">
+        <div class="input-field">
+          <input id="font-size" type="text" class="validate" maxlength="5">
+          <label for="font-size">フォントの大きさ</label>
+        </div>
+        <a id="change-background-color-btn" class="waves-effect waves-light btn"><i
+            class="material-icons left">chevron_left</i>背景色の変更</a>
+        <a id="change-chara-color-btn" class="waves-effect waves-light btn"><i
+            class="material-icons left">chevron_left</i>色の変更</a>
+        <a id="change-theme-btn" class="waves-effect waves-light btn"><i
+            class="material-icons left">chevron_left</i>テーマ</a>
+      </div>
+      <div id="vote-edit" class="full">
+        <i class="material-icons close">chevron_right</i>
+        <h4>投票の編集</h4>
+        <ul class="collapsible">
+          <li class="active">
+            <div class="collapsible-header"><i class="material-icons">title</i>タイトルと選択肢</div>
+            <div id="vote-title-and-choices" class="collapsible-body">
+              <div id="vote-choices">
+                <div class="input-field">
+                  <input id="title" type="text" class="validate">
+                  <label for="title">タイトル</label>
+                </div>
+                <div class="input-field-div">
+                  <div class="input-field">
+                    <input id="choice1" type="text" class="validate" value="選択肢1">
+                    <label for="choice1"></label>
+                  </div>
+                  <i class="material-icons" onclick="DeleteThis(this.parentNode)">close</i>
+                </div>
+                <div class="input-field-div">
+                <div class="input-field">
+                  <input id="choice2" type="text" class="validate" value="選択肢2">
+                  <label for="choice2"></label>
+                </div>
+                <i class="material-icons" onclick="DeleteThis(this.parentNode)">close</i>
+              </div>
+                <i id="add-vote-choice" class="material-icons tooltipped" data-position="right" data-tooltip="選択肢を追加">add</i>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">pie_chart</i>グラフの種類</div>
+            <div class="collapsible-body"><span>
+                <div class="input-field">
+                  <select>
+                    <option value="1">円グラフ</option>
+                    <option disabled>随時追加予定！</option>
+                    <!--<option value="2">棒グラフ</option>-->
+                  </select>
+                </div>
+              </span></div>
+          </li>
+          <li>
+            <div class="collapsible-header"><i class="material-icons">photo_size_select_small</i>グラフの大きさ</div>
+            <div class="collapsible-body">
+              <div class="input-field">
+                <input id="change-chart-size" type="number" class="validate" value="400">
+                <label for="change-chart-size"></label>
+              </div>
+            </div>
+          </li>
+
+      </div>
+
+      <div id="color-selection" class="full">
+        <i class="material-icons close">chevron_right</i>
+        <h4>文字色の変更</h4>
+        <p>
+          <label>
+            <input name="col" type="radio" value="red" />
+            <span>Red</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input name="col" type="radio" value="yellow" />
+            <span>Yellow</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input name="col" type="radio" value="green" />
+            <span>Green</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input name="col" type="radio" value="brown" />
+            <span>Brown</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input name="col" type="radio" value="white" />
+            <span>White</span>
+          </label>
+        </p>
+      </div>
+      <div id="background-color-selection" class="full">
+        <i class="material-icons close">chevron_right</i>
+        <h4>背景色の変更</h4>
+        <p>
+          <label>
+            <input name="col" type="radio" value="red" />
+            <span>Red</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input name="col" type="radio" value="yellow" />
+            <span>Yellow</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input name="col" type="radio" value="green" />
+            <span>Green</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input name="col" type="radio" value="brown" />
+            <span>Brown</span>
+          </label>
+        </p>
+        <p>
+          <label>
+            <input name="col" type="radio" value="white" />
+            <span>White</span>
+          </label>
+        </p>
+      </div>
+      <div id="theme-selection" class="full">
+        <i class="material-icons close">chevron_right</i>
+        <h4>テーマを選択</h4>
+        <div id="default-theme" class="theme">
+          <img src="img/default-theme.png" />
+        </div>
+        <div id="theme1" class="theme">
+          <img src="img/theme1.png" />
+        </div>
+        <div id="theme2" class="theme">
+          <img src="img/theme2.png" />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="download-div-black">
+    <div id="download-div" class="card-panel">
+      <a id="download" class="waves-effect waves-light btn" href="#" download="slide.html">ダウンロード</a>
+    </div>
+  </div>
+
+  <script src="js/test.js"></script>
+  <script src="js/init.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/sidebar.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/shortcut.js"></script>
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src="js/export.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/interactjs@next/dist/interact.min.js"></script>
+  <script src="js/dd.js"></script>
+</body>
+
+</html>

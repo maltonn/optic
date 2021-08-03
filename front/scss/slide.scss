@@ -1,0 +1,32 @@
+section{
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  padding:3vmax;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+  background-color: white;
+  overflow:hidden;
+  h1{
+    font-size: 150px;
+  }
+  h2{
+    font-size:100px;
+  }
+  h3{
+    font-size:70px;
+  }
+  p{
+    font-size: 40px;
+  }
+  canvas{//only on editor
+    background-color: rgba(0,0,0,.3);
+    background-image: -webkit-gradient(linear, 0 0, 100% 100%,color-stop(.25,rgba(255,255,255,.5)), color-stop(.25, transparent),color-stop(.5, transparent), color-stop(.5, #F9F9F9),color-stop(.75, #F9F9F9), color-stop(.75, transparent),to(transparent));
+    -webkit-background-size: 7px 7px; 
+    border: 1px solid black;
+  }
+}

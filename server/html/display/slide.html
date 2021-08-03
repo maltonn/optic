@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <title>仮のタイトル</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <style>
+        html,
+        body {
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+
+        section {
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            padding: 3vmax;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-sizing: border-box;
+            background-color: #fff;
+            overflow: hidden
+        }
+
+        section h1 {
+            font-size: 150px
+        }
+
+        section h2 {
+            font-size: 0
+        }
+
+        section h3 {
+            font-size: 50px
+        }
+
+        section p {
+            font-size: 30px
+        }
+
+        .comment {
+            position: absolute;
+            left: 100%;
+            width: 100%;
+            overflow: hidden;
+            animation-duration: 6s;
+            animation-timing-function: linear;
+            font-size: 6vw;
+            color: #888;
+            z-index: 160
+        }
+
+        @keyframes shed {
+            to {
+                transform: translateX(-200vw)
+            }
+        }
+
+        section.card-panel {
+            background-color: #f2cf01;
+            color: #6d1782;
+            --rd: 10vh
+        }
+
+        section h1 {
+            margin: 0
+        }
+
+        section p {
+            margin: 0
+        }
+
+        section div {
+            position: absolute
+        }
+
+        section .outer_point {
+            position: absolute;
+            width: calc(var(--rd) * 1.2);
+            height: calc(var(--rd) * 1.2);
+            border-radius: 50%;
+            border: 5px solid #6d1782
+        }
+
+        section #p1 {
+            top: calc(50% - var(--rd)/ 2);
+            left: 5%
+        }
+
+        section #p2 {
+            top: calc(50% - var(--rd)/ 2);
+            right: 5%
+        }
+
+        section .outer_point::before {
+            content: "";
+            position: absolute;
+            top: 25%;
+            left: -10%;
+            width: 120%;
+            height: 50%;
+            background-color: #f2cf01;
+            transform: rotate(40deg);
+            animation: rotate 2s ease-in-out 0s infinite
+        }
+
+        @keyframes rotate {
+            to {
+                transform: rotate(400deg)
+            }
+        }
+
+        section .point {
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: var(--rd);
+            height: var(--rd);
+            border-radius: 50%;
+            background-color: #6d1782;
+            cursor: pointer;
+            z-index: 10
+        }
+
+        section .point::after {
+            --border: 3px;
+            content: "";
+            position: absolute;
+            top: calc(var(--border)/ -2);
+            left: calc(var(--border)/ -2);
+            width: calc(100% - var(--border));
+            height: calc(100% - var(--border));
+            border-radius: 50%;
+            border: var(--border) solid #6d1782;
+            animation: scale 2s ease 0s infinite;
+            transition-duration: .3s;
+            z-index: 9
+        }
+
+        @keyframes scale {
+            to {
+                transform: scale(2);
+                opacity: 0
+            }
+        }
+
+        section .inner_point {
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: calc(var(--rd) * .6);
+            height: calc(var(--rd) * .6);
+            border-radius: 50%;
+            border: 3px solid #f2cf01
+        }
+
+        c section .inner_point::before {
+            content: "";
+            position: absolute;
+            top: 35%;
+            left: -20%;
+            width: 140%;
+            height: 30%;
+            transform-origin: center center;
+            background-color: #6d1782;
+            animation: rotate2 5s steps(7) 0s infinite;
+            transition-duration: .3s
+        }
+
+        @keyframes rotate2 {
+            to {
+                transform: rotate(-240deg)
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section id="top_slide"><img
+            src="https://chart.apis.google.com/chart?chs=400x400&cht=qr&chl=http://localhost:3000/client?r=FVU8"></img>
+        <p>click to start</p>
+    </section>
+    <section id="slide1-clone" class="card-panel">
+        <h1 class="draggable theme-elm">Genius</h1>
+        <p class="draggable theme-elm">is 1 percent inspiration,</p>
+        <p class="draggable theme-elm">99 percent perspiration.</p>
+        <div class="outer_point draggable theme-elm" id="p1">
+            <div class="point">
+                <div class="inner_point"> </div>
+            </div>
+        </div>
+        <div class="outer_point draggable theme-elm" id="p2">
+            <div class="point">
+                <div class="inner_point"> </div>
+            </div>
+        </div>
+    </section>
+    <section id="slide2-clone" class="card-panel">
+        <h1 class="draggable theme-elm" data-x="-23.333333333333343" data-y="-226.66666666666666"
+            style="position: absolute; transform: translate(-23.3333px, -226.667px);">The first pag</h1>
+        <p class="draggable theme-elm" data-x="-450" data-y="276.6666666666667"
+            style="position: absolute; transform: translate(-450px, 276.667px);">is 1 percent inspiration,</p>
+        <p class="draggable theme-elm" data-x="458.333333333333" data-y="268.5000101725262"
+            style="position: absolute; transform: translate(458.333px, 268.5px);">99 percent perspiration.</p>
+        <div class="outer_point draggable theme-elm" id="p1" data-x="554.9999999999998" data-y="23.33333333333334"
+            style="position: absolute; transform: translate(555px, 23.3333px);">
+            <div class="point">
+                <div class="inner_point"> </div>
+            </div>
+        </div>
+        <div class="outer_point draggable theme-elm" id="p2" data-x="-121.66666666666669" data-y="-199.99999999999994"
+            style="position: absolute; transform: translate(-121.667px, -200px);">
+            <div class="point">
+                <div class="inner_point"> </div>
+            </div>
+        </div>
+    </section>
+    <section id="slide3-clone" class="card-panel" style="color: red;">
+        <h1 class="draggable theme-elm" data-x="300" data-y="-141.66666666666666"
+            style="position: absolute; transform: translate(300px, -141.667px);">Genius</h1>
+        <p class="draggable theme-elm" data-x="-73.33333333333334" data-y="181.66666666666663"
+            style="position: absolute; transform: translate(-73.3333px, 181.667px); background-color: yellow;">is 1
+            percent inspiration,</p>
+        <p class="draggable theme-elm" data-x="-43.333333333333336" data-y="25"
+            style="position: absolute; transform: translate(-43.3333px, 25px); background-color: white;">99 percent
+            perspiration.</p>
+    </section>
+    <section id="slide4" class="card-panel vote">
+        <h1>test vote</h1>
+        <canvas id="chart_test" width="400" height="400"></canvas>
+    </section>
+    <section id="end">
+        <p>that's all</p>
+    </section>
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <script>
+        question_obj={
+            'slide4':['a','b','C']
+        }    
+    </script>
+    <script>
+        var room_id = "FVU8", socket = io("http://localhost:3000/d?r=FVU8"); socket.emit("room", room_id); var current_slide = top_slide; for (top_slide.style.display = "flex", (start = (() => { for (actions_lists = document.getElementsByClassName("actions-list"), i = 0; i < actions_lists.length; i++)for (j = 0; j < actions_lists[i].children.length; j++)actions_lists[i].children[j].classList.add("action"); setTimeout(() => { top_slide.style.zIndex = "150" }) }))(), slides_list = document.getElementsByTagName("section"), i = 0; i < slides_list.length; i++)slides_list[i].style.zIndex = 100 - i; function Drow(e, t, i, s, n) { e.canvas.width = 500, e.canvas.height = 500, new Chart(e, { type: n, data: { labels: i, datasets: [{ label: t, data: s, backgroundColor: ["rgba(244, 67, 54,.5)", "rgba(139, 195, 74,.5)", "rgba(103, 58, 183,.5)", "rgba(33, 150, 243,.5)", "rgba(255, 193, 7,1.5)", "rgba(121, 85, 72,.5)", "rgba(233, 30, 99,.5)"] }] }, options: { responsive: !0, maintainAspectRatio: !1 } }) } charts = document.getElementsByClassName("chart"), chart_count = 0, chart = null, main_func = (() => { action = document.querySelector("#" + current_slide.id + " .action"), action ? action.classList.remove("action") : (current_slide.nextElementSibling.classList.contains("vote") ? (chart = charts[chart_count], chart_count += 1, q = question_obj[current_slide.nextElementSibling.id], socket.emit("question", q), chc_list = [], ans_list = [], resulting_div = document.createElement("div")) : socket.emit("end_voting"), switch_slide()) }), switch_slides = document.querySelectorAll("#switch_slides_div > div"), back_slide = (() => { current_slide.style.zIndex = "110", (current_slide = current_slide.previousElementSibling).style.transform = "rotate(0)" }), switch_slide = (() => { current_slide.style.display = "none", current_slide = current_slide.nextElementSibling }), socket.on("answer", function (e) { index = chc_list.indexOf(e), index < 0 ? (chc_list.push(e), ans_list.push(1)) : ans_list[index] += 1, Drow(chart.getContext("2d"), "sample", chc_list, ans_list, "pie") }), socket.on("redo", function (e) { index = chc_list.indexOf(e), ans_list[index] -= 1, Drow(chart.getContext("2d"), "sample", chc_list, ans_list, "pie") }), socket.on("comment", function (e) { console.log(e), e.length > 32 && (e = e.slice(0, 33)), elm = document.createElement("p"), elm.innerHTML = e, elm.classList.add("comment"), elm.style.top = 90 * Math.random() + "%", elm.style.animationName = "shed", document.body.appendChild(elm) }), document.addEventListener("click", function () { main_func() });
+    </script>

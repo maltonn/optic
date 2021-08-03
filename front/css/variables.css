@@ -1,0 +1,15 @@
+/*
+#http://www.hp-stylelink.com/news/2013/07/20130708.php
+
+col_lst_str=input()# #e2b2c0#fff353#a5d1f4#e4ad6d#d685b0#dbe159#7fc2ef#c4a6ca#eabf4c#f9e697#b3d3ac#eac7cd
+
+var_lst=['$sidebar-bgc', '$color-selection-bgc', '$background-color-selection-bgc', '$editor-bgc', '$toolbar-bgc', '$summary-bgc', '$btn-bgc', '$btn-hover-bgc']
+col_lst=col_lst_str.split('#')
+
+print(col_lst)
+for i,var in enumerate(var_lst):
+    print(var+": #"+col_lst[i+1]+";")
+
+*/
+
+/*# sourceMappingURL=variables.css.map */

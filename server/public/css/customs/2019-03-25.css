@@ -1,0 +1,59 @@
+#intro>h1 {
+    margin: 10px;
+}
+
+.rdiv {
+    height: 70%;
+    padding-right: 10%;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-content: flex-end;
+    justify-content: space-around;
+}
+
+canvas {
+    display: none;
+}
+
+#icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 30px;
+    width: 20vw;
+    border-radius: 50%;
+}
+
+#slide3>img {
+    max-width: 45%;
+}
+#slide8 > h2{
+    margin:10px;
+}
+.bake-red {
+    background-color: #A90813;
+    color: #FAB8B2;
+}
+
+.mincho {
+    font-family: "HG明朝E", "游明朝", YuMincho, "ＭＳ 明朝";
+}
+
+#getting_started>h2 {
+    margin: 0;
+}
+
+#getting_started>p {
+    margin: 0;
+}
+#above1>img{
+    height: 95%;
+}
+.vote>h2{
+    margin: 0;
+}
+
+.center{
+    justify-content: center;
+}

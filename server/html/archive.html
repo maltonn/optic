@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/uikit.min.css">
+    <title>コメント一覧</title>
+</head>
+
+<body>
+    <h1>コメント一覧</h1>
+    <table id="com_table"  class="uk-table uk-table-striped" border="1"></table>
+    <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script>
+        var socket = io('/a');
+        socket.on('comment', function (com) {
+            console.log(com)
+            tr=document.createElement('tr')
+            th1 = document.createElement('th')
+            th1.innerText = com['username']
+            th2 = document.createElement('th')
+            th2.innerText = com['comment']
+            tr.appendChild(th1)
+            tr.appendChild(th2)
+            com_table.appendChild(tr)
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+@import 'variables';
+#editor {
+  left:$summary-width;
+  width:100% - $summary-width - $sidebar-width;
+  background-color:$editor-bgc;
+  section{
+    transform-origin: 0 0;
+    transform: scale($editor-scale);
+    margin-left:(100% - $sidebar-width - $summary-width - 100%*$editor-scale)/2*(100%/(100% - $sidebar-width - $summary-width));
+    margin-top:12%;
+  }
+}

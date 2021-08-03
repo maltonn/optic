@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>リダイレクトページ</title>
+</head>
+<body>
+    <a href="https://moscwa.github.io/">リダイレクトされない場合(Moscwaのホームページへ飛びます)</a>
+    <script>
+        if(confirm('Moscwaのホームページに移動しまか？')){
+            setTimeout(()=>{
+                location.href="https://moscwa.github.io/"
+            }, 0);
+        }else{
+            setTimeout(()=>{
+                location.href="https://vote-slide.herokuapp.com/client"
+            }, 0);
+        }
+    </script>
+</body>
+</html>

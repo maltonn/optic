@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/uikit.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <title>投票スライド</title>
+</head>
+
+<body>
+  <div id="right_space">
+      <div id="comment_div" class="uk-card uk-card-default">
+          <div id="header" class="uk-card-header">
+            <h1 class="uk-card-title">コメントを送る</h1>
+          </div>
+          <div class="uk-card-body">
+              <div class="uk-margin">
+                  <input id="username" class="uk-input" type="text" placeholder="名前（任意）">
+              </div>
+            <div class="uk-margin">
+                <input id="comment" class="uk-input" type="text" placeholder="コメント（前を流れます）">
+            </div>
+            <button id="send" class="uk-button uk-button-primary uk-button-default">送信</button>
+          </div>
+        </div>
+  </div>
+  <div id="vote" class="uk-card uk-card-default">
+    <div id="header" class="uk-card-header">
+      <h1 id="title" class="uk-card-title">待機中...</h1>
+    </div>
+    <div id="chc" class="uk-card-body">
+        <p class='center'>ここに選択肢が表示されます</a></p>
+    </div>
+  </div>
+  <button id="redo" class="uk-button uk-button-large uk-button-primary ">
+    <span uk-icon="commenting"></span>
+    投票をやり直す
+  </button>
+
+  <script src="js/uikit.min.js"></script>
+  <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+  <script src="/js/client.js"></script>
+</body>
+
+</html>
