@@ -1,45 +1,31 @@
-﻿filename='slide.html'
-
-const express=require('express');
+﻿const express = require('express');
 const app = express();
-const http = require('http').Server(app);
-const io = require('socket.io')(http);
-const port = process.env.PORT || 3000;
+const http = require('http');
+const server = http.createServer(app);
+const port=3000;
 
+const io = require("socket.io")(server, {//cors許可
+  cors: {
+    origin: "*",
+    methods: ["GET", "POST"]
+  }
+});
+
+
+/*
 const bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
-
-const crypto = require('crypto');
+*/
 
 app.use(express.static('public'));
 
-app.use(function(req, res, next) {//CORSの許可 ローカルファイルからでもアクセスできるようにする
+app.use(function(req, res, next) { //CORSの許可 ローカルファイルからでもアクセスできるようにする
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
 
-app.get('/admin', function(req, res){
-  res.sendFile(__dirname + '/html/admin.html');
-});
-app.get('/comments', function(req, res){
-  res.sendFile(__dirname + '/html/archive.html');
-});
-app.get('/client', function(req, res){
-  res.sendFile(__dirname + '/html/client.html');
-});
-app.get('/display',function(req,res){
-  //res.sendFile(__dirname + '/html/display/'+filename);  //ロック解除
-  res.redirect('/admin') //パスワードロックをかけたいとき
-});
-
-app.get('/', function(req, res){
-  //res.sendFile(__dirname + '/html/confirm.html');//特定のホームページに誘導
-  res.redirect('/client')
-});
-
-room_id_lst=[]
 app.get('/get-room-id',dfs=function(req,res){
   params={}
   req.url.split('?')[1].split('&').forEach((e)=>{params[e.split('=')[0]]=e.split('=')[1]})
@@ -57,7 +43,26 @@ app.get('/get-room-id',dfs=function(req,res){
   }
 })
 
+/*サーバーにslideファイルを置いとく時用?
+const crypto = require('crypto');
+app.get('/admin', function(req, res){
+  res.sendFile(__dirname + '/html/admin.html');
+});
+app.get('/display',function(req,res){
+  //res.sendFile(__dirname + '/html/display/'+filename);  //ロック解除
+  res.redirect('/admin') //パスワードロックをかけたいとき
+});
 
+app.get('/', function(req, res){
+  //res.sendFile(__dirname + '/html/confirm.html');//特定のホームページに誘導
+  res.redirect('/client')
+});
+
+room_id_lst=[]
+
+
+
+filename='slide.html'
 app.post('/display',function(req,res){
   if (req.body.username!="moscwa"){
     res.redirect('/admin?wu');
@@ -72,9 +77,18 @@ app.post('/display',function(req,res){
   }
   res.sendFile(__dirname + '/html/display/'+filename);  
 })
+*/
+
+app.get('/comments', function(req, res){
+  res.sendFile(__dirname + '/html/archive.html');
+});
+app.get('/client', function(req, res){
+  res.sendFile(__dirname + '/html/client.html');
+});
 
 current_chc={}
-io.of('/c').on('connection', function(socket){
+io.of('c').on('connection', (socket)=>{ //client
+  console.log('/c .on')
   socket.on('room',function(room_id){
     socket.join(room_id)
     if (current_chc[room_id]){
@@ -93,7 +107,7 @@ io.of('/c').on('connection', function(socket){
 });
 });
 
-io.of('/d').on('connection', function(socket){
+io.of('/d').on('connection', function(socket){//display
   socket.on('room',function(room_id){
     socket.join(room_id)
     current_chc[room_id]=null
@@ -116,10 +130,7 @@ io.of('/a').on('connection',function(socket){
 })
 
 
-
-
-
-http.listen(port, function(){
+server.listen(port, function(){
   console.log('listening on *:' + port);
 });
 
