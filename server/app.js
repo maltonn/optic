@@ -88,7 +88,7 @@ app.get('/client', function(req, res){
 
 current_chc={}
 io.of('c').on('connection', (socket)=>{ //client
-  console.log('/c .on')
+  console.log('user connected')
   socket.on('room',function(room_id){
     socket.join(room_id)
     if (current_chc[room_id]){
@@ -120,13 +120,15 @@ io.of('/d').on('connection', function(socket){//display
       current_chc[room_id]=null
     })
   })
-
+  
 });
 
 io.of('/a').on('connection',function(socket){
+  /*
   for(i=0;i<comments_list.length;i++){
     io.of('/a').emit('comment',comments_list[i])
   }
+  */
 })
 
 
