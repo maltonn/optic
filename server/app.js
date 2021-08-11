@@ -26,6 +26,7 @@ app.use(function(req, res, next) { //CORSの許可 ローカルファイルか�
   next();
 });
 
+room_id_lst=[]
 app.get('/get-room-id',dfs=function(req,res){
   params={}
   req.url.split('?')[1].split('&').forEach((e)=>{params[e.split('=')[0]]=e.split('=')[1]})
