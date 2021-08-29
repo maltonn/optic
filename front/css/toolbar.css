@@ -12,14 +12,14 @@ for i,var in enumerate(var_lst):
 
 */
 #toolbar {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
   background-color: #ae8dbc;
-  height: 10%;
 }
 #toolbar h1 {
   position: absolute;
   margin: 8px;
   width: 50%;
-  font-size: 7vh;
+  font-size: 5vh;
 }
 #toolbar .btn {
   float: right;

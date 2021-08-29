@@ -68,7 +68,7 @@ for i,var in enumerate(var_lst):
 }
 
 #summary::-webkit-scrollbar-thumb {
-  background: #c28620;
+  background: #fff;
   border-radius: 10px;
   box-shadow: inset 0 0 0 2px #e5ab47;
 }

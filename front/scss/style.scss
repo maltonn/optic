@@ -9,8 +9,8 @@ body{
 #main{
   >div{
     position: absolute;
-    top:10%;
-    height: 90%;
+    top:64px;
+    height:calc( 100% - 64px );
   }
 }
 #download-div-black{
