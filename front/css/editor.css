@@ -14,7 +14,7 @@ for i,var in enumerate(var_lst):
 #editor {
   left: 17%;
   width: 63%;
-  background-color: #ccc;
+  background-color: #b1d7e4;
 }
 #editor section {
   transform-origin: 0 0;

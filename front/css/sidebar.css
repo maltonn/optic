@@ -15,8 +15,7 @@ for i,var in enumerate(var_lst):
   left: 80%;
   width: 20%;
   padding: 2%;
-  background-color: #fff;
-  box-shadow: 10px 5px 5px red;
+  background-color: #eabf4c;
 }
 #sidebar #main-tool a {
   margin: 8px;
@@ -44,7 +43,7 @@ for i,var in enumerate(var_lst):
   color: #212121;
 }
 #sidebar #vote-edit {
-  background-color: #fff;
+  background-color: #c8d627;
 }
 #sidebar #vote-edit > ul {
   border: none;
@@ -56,7 +55,7 @@ for i,var in enumerate(var_lst):
 }
 #sidebar #vote-edit > ul div {
   border: none;
-  background-color: #fff;
+  background-color: #c8d627;
 }
 #sidebar #vote-edit > ul div.collapsible-header {
   border-top: 1px solid black;
@@ -75,22 +74,22 @@ for i,var in enumerate(var_lst):
   width: 10px;
 }
 #sidebar #vote-edit::-webkit-scrollbar-track {
-  background: #fff;
-  border-left: solid 1px #fff;
+  background: #c8d627;
+  border-left: solid 1px #c8d627;
 }
 #sidebar #vote-edit::-webkit-scrollbar-thumb {
-  background: #fff;
+  background: #9ba71a;
   border-radius: 10px;
-  box-shadow: inset 0 0 0 2px #fff;
+  box-shadow: inset 0 0 0 2px #c8d627;
 }
 #sidebar #color-selection {
-  background-color: #fff;
+  background-color: #f9e697;
 }
 #sidebar #background-color-selection {
-  background-color: #fff;
+  background-color: #eac7cd;
 }
 #sidebar #theme-selection {
-  background-color: #fff;
+  background-color: #b3d3ac;
 }
 #sidebar #theme-selection > div {
   width: 15vw;

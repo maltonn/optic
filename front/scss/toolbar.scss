@@ -1,13 +1,12 @@
 @import 'variables';
 #toolbar{
-  box-shadow: 0 2px 5px rgba(0,0,0,0.26);
   background-color: $toolbar-bgc;
-  //height: 10%;
+  height: 10%;
   h1{
     position: absolute;
     margin: 8px;
     width:50%;
-    font-size:5vh;
+    font-size:7vh;
   }
   .btn{
     float: right;
