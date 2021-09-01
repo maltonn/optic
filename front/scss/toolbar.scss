@@ -1,12 +1,12 @@
 @import 'variables';
 #toolbar{
-  background-color: $toolbar-bgc;
-  height: 10%;
+  z-index: 999;
   h1{
     position: absolute;
     margin: 8px;
     width:50%;
-    font-size:7vh;
+    font-size:5vh;
+    z-index: 999;
   }
   .btn{
     float: right;

@@ -1,7 +1,11 @@
-fs_btn=document.getElementById('font-size')
-fs_btn.addEventListener('change',()=>{
-  (nowPointing||document.getElementById(current_slide_id)).style.fontSize=fs_btn.value
+fs_input=document.getElementById('font-size')
+fs_input.addEventListener('change',()=>{
+  console.log((nowPointing||document.getElementById(current_slide_id)));
+  (nowPointing||document.getElementById(current_slide_id)).style.fontSize=fs_input.value+'px'
+  fs_input.nextElementSibling.nextElementSibling.innerText=fs_input.value+'px'
 })
+
+
 
 //cc : color-change
 cc_sel_div=document.getElementById('color-selection')
@@ -84,9 +88,21 @@ InitEditVote()
 document.getElementById('change-chart-size').addEventListener('change',function(){
   let size=this.value
   let chart=document.getElementById(current_slide_id).getElementsByTagName('canvas')[0]
+  let size_display=this.nextSibling.nextSibling.nextSibling
+  size_display.innerText=size+'px'
   chart.width=size
   chart.height=size
 })
+
+img_size_input=document.getElementById('change-image-size')
+img_size_input.addEventListener('change',()=>{
+  console.log(nowPointing);
+  (nowPointing||document.getElementById(current_slide_id)).style.height=img_size_input.value+'px'
+  img_size_input.nextElementSibling.nextElementSibling.innerText=img_size_input.value+'px'
+})
+
+
+
 
 close_btns=document.getElementsByClassName('close')
 for(i=0;i<close_btns.length;i++){

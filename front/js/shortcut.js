@@ -3,15 +3,9 @@ document.addEventListener('keydown', (e) => {
     if(e.key=="Enter"){
         SwitchSlide(null)
     }
-  } else if (e.shiftKey) {
-    if(e.key=="H"){
-      DropElement('h1')
-    }else if(e.key=="P"){
-      DropElement('p')
-    }
-  } else {
+  }else {
     if (e.key == "Backspace") {
-      if (document.activeElement != document.body) { //入力中のバックスペースは何もしない
+      if (nowPointing && ['P','H1','H2'].includes(nowPointing.tagName)) {
         return;
       }
       if (nowPointing) {

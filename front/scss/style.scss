@@ -5,12 +5,20 @@ body{
   margin: 0;
   padding: 0;
   overflow: hidden;
+  background-color: #eee;
+
+}
+#export{
+  z-index: 10;
+  position: absolute;
+  bottom: 0;
+  right:0;
+  margin: 16px;
 }
 #main{
   >div{
     position: absolute;
-    top:10%;
-    height: 90%;
+    height:calc(100% - 64px);
   }
 }
 #download-div-black{
@@ -43,9 +51,11 @@ i{
   cursor: pointer;
 }
 .btn{
-  background-color: $btn-bgc;
   color:$text-color-light;
 }
 .btn:hover{
   background-color: $btn-hover-bgc;
+}
+.range-display{
+  text-align: center;
 }

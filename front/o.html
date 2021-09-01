@@ -1,41 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <style>
+  .resize-drag {
+    width: 120px;
+    color: white;
+    font-size: 20px;
+    font-family: sans-serif;
+  
+    
+  
+    /* This makes things *much* easier */
+    box-sizing: border-box;
+  }
+  </style>
+
 </head>
 <body>
-  <div class="input-field col s12">
-    <select>
-      <option value="" disabled selected>Choose your option</option>
-      <option value="1">Option 1</option>
-      <option value="2">Option 2</option>
-      <option value="3">Option 3</option>
-    </select>
-    <label>Materialize Select</label>
+  <div class="resize-drag">
+    Resize from any edge or corner
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script>
-
-document.addEventListener('DOMContentLoaded', function() {
-  var elems = document.querySelectorAll('select');
-  var instances = M.FormSelect.init(elems);
-});
-
-  </script>
-
-<div class="input-field-div">
-  <div class="input-field">
-    <input id="choice1" type="text" class="validate" value="'+ques[i]+'">
-    <label for="choice1"></label>
-  </div>
-  <i class="material-icons" onclick="DeleteThis(this.parentNode)">close</i>
-</div>
-
-
+  <img src='o.png' class='resize-drag'>
 </body>
-</html>
+  <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>  <script src="js/dd.js"></script>
+<script>
+interact('.resize-drag')
+  .resizable({
+    // resize from all edges and corners
+    edges: { left: true, right: true, bottom: true, top: true },
+
+    listeners: {
+      move (event) {
+        var target = event.target
+        var x = (parseFloat(target.getAttribute('data-x')) || 0)
+        var y = (parseFloat(target.getAttribute('data-y')) || 0)
+
+        // update the element's style
+        target.style.width = event.rect.width + 'px'
+        target.style.height = event.rect.height + 'px'
+
+        // translate when resizing from top or left edges
+        x += event.deltaRect.left
+        y += event.deltaRect.top
+
+        target.style.transform = 'translate(' + x + 'px,' + y + 'px)'
+
+        target.setAttribute('data-x', x)
+        target.setAttribute('data-y', y)
+        target.textContent = Math.round(event.rect.width) + '\u00D7' + Math.round(event.rect.height)
+      }
+    },
+    modifiers: [
+      // keep the edges inside the parent
+      interact.modifiers.restrictEdges({
+        outer: 'parent'
+      }),
+
+      // minimum size
+      interact.modifiers.restrictSize({
+        min: { width: 100, height: 50 }
+      })
+    ],
+
+    inertia: true
+  })
+  .draggable({
+    listeners: { move: window.dragMoveListener },
+    inertia: true,
+    modifiers: [
+      interact.modifiers.restrictRect({
+        restriction: 'parent',
+        endOnly: true
+      })
+    ]
+  })
+</script>

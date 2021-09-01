@@ -1,4 +1,12 @@
 /*
+$sidebar-bgc:#eee;
+$color-selection-bgc:#eee;
+$background-color-selection-bgc:#eee;
+$theme-selection-bgc:#eee;
+$editor-bgc:#eee;
+$toolbar-bgc: #eee;
+*/
+/*
 #http://www.hp-stylelink.com/news/2013/07/20130708.php
 
 col_lst_str=input()# #e2b2c0#fff353#a5d1f4#e4ad6d#d685b0#dbe159#7fc2ef#c4a6ca#eabf4c#f9e697#b3d3ac#eac7cd
@@ -12,17 +20,20 @@ for i,var in enumerate(var_lst):
 
 */
 #sidebar {
+  z-index: 0;
   left: 80%;
   width: 20%;
   padding: 2%;
-  background-color: #eabf4c;
+}
+#sidebar > div {
+  background-color: #eee;
 }
 #sidebar #main-tool a {
   margin: 8px;
 }
 #sidebar .full {
   position: absolute;
-  top: 0;
+  top: 4px;
   left: 0;
   width: 100%;
   height: 100%;
@@ -34,16 +45,13 @@ for i,var in enumerate(var_lst):
 #sidebar .full > * {
   margin-left: 10%;
 }
-#sidebar #color-selection, #sidebar #background-color-selection, #sidebar #theme-selection, #sidebar #vote-edit {
+#sidebar > div:not(#main-tool) {
   overflow: auto;
   transform: translateX(100%);
   z-index: 30;
 }
-#sidebar #color-selection h4, #sidebar #color-selection span, #sidebar #background-color-selection h4, #sidebar #background-color-selection span, #sidebar #theme-selection h4, #sidebar #theme-selection span, #sidebar #vote-edit h4, #sidebar #vote-edit span {
+#sidebar > div:not(#main-tool) h4, #sidebar > div:not(#main-tool) span {
   color: #212121;
-}
-#sidebar #vote-edit {
-  background-color: #c8d627;
 }
 #sidebar #vote-edit > ul {
   border: none;
@@ -55,7 +63,7 @@ for i,var in enumerate(var_lst):
 }
 #sidebar #vote-edit > ul div {
   border: none;
-  background-color: #c8d627;
+  background-color: #eee;
 }
 #sidebar #vote-edit > ul div.collapsible-header {
   border-top: 1px solid black;
@@ -74,22 +82,13 @@ for i,var in enumerate(var_lst):
   width: 10px;
 }
 #sidebar #vote-edit::-webkit-scrollbar-track {
-  background: #c8d627;
-  border-left: solid 1px #c8d627;
+  background: #eee;
+  border-left: solid 1px #eee;
 }
 #sidebar #vote-edit::-webkit-scrollbar-thumb {
-  background: #9ba71a;
+  background: #eee;
   border-radius: 10px;
-  box-shadow: inset 0 0 0 2px #c8d627;
-}
-#sidebar #color-selection {
-  background-color: #f9e697;
-}
-#sidebar #background-color-selection {
-  background-color: #eac7cd;
-}
-#sidebar #theme-selection {
-  background-color: #b3d3ac;
+  box-shadow: inset 0 0 0 2px #eee;
 }
 #sidebar #theme-selection > div {
   width: 15vw;

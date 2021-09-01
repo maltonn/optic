@@ -1,4 +1,12 @@
 /*
+$sidebar-bgc:#eee;
+$color-selection-bgc:#eee;
+$background-color-selection-bgc:#eee;
+$theme-selection-bgc:#eee;
+$editor-bgc:#eee;
+$toolbar-bgc: #eee;
+*/
+/*
 #http://www.hp-stylelink.com/news/2013/07/20130708.php
 
 col_lst_str=input()# #e2b2c0#fff353#a5d1f4#e4ad6d#d685b0#dbe159#7fc2ef#c4a6ca#eabf4c#f9e697#b3d3ac#eac7cd
@@ -17,12 +25,20 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  background-color: #eee;
+}
+
+#export {
+  z-index: 10;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 16px;
 }
 
 #main > div {
   position: absolute;
-  top: 10%;
-  height: 90%;
+  height: calc(100% - 64px);
 }
 
 #download-div-black {
@@ -57,12 +73,15 @@ i {
 }
 
 .btn {
-  background-color: #d16b16;
   color: #eeeeee;
 }
 
 .btn:hover {
   background-color: #d16b16;
+}
+
+.range-display {
+  text-align: center;
 }
 
 /*# sourceMappingURL=style.css.map */

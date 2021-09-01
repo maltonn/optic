@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>HTML Present Point</title>
+  <title>OPTIC(仮)</title>
   <link rel="icon" href="icon.png" sizes="64x64" type="image/png">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -18,12 +18,10 @@
 </head>
 
 <body>
+  <i id="export" class="material-icons tooltipped medium " data-position="top" data-tooltip="Export">forward</i>
+
   <nav id="toolbar">
-    <h1>HTML Present Point</h1>
-    <a id="export" class="waves-effect waves-light btn indigo">エクスポート</a>
-    <a id="add-p" class="waves-effect waves-light btn pink">本文を追加</a>
-    <a id="add-title" class="waves-effect waves-light btn pink">タイトルを追加</a>
-    <a id="add-vote" class="waves-effect waves-light btn green">投票を追加</a>
+    <h1>OPTIC(仮)</h1>
   </nav>
   <div id="main">
     <div id="summary">
@@ -33,9 +31,23 @@
     <div id="editor"></div>
     <div id="sidebar">
       <div id="main-tool">
+        <div id='add_elements_div'>
+          <i id="add-p" class="material-icons tooltipped medium " data-position="bottom" data-tooltip="テキスト">text_fields</i>
+          <i id="add-vote" class="material-icons tooltipped medium " data-position="bottom" data-tooltip="投票">insert_chart</i>
+
+          <label for="add-image" style='color:black'>
+            <i class="material-icons tooltipped medium " data-position="bottom" data-tooltip="画像">image</i>
+          </label>
+          <input id="add-image" type="file"  accept="image/jpeg, image/png" style='display:none'>
+
+          <i id="" class="material-icons tooltipped medium " data-position="bottom" data-tooltip="">add</i>
+        </div>
+        <div class="divider"></div>
+
         <div class="input-field">
-          <input id="font-size" type="text" class="validate" maxlength="5">
-          <label for="font-size">フォントの大きさ</label>
+          <p>フォントサイズ</p>
+          <input id='font-size' type="range" id="test5" min="0" max="100" />
+          <p class='range-display'></p>
         </div>
         <a id="change-background-color-btn" class="waves-effect waves-light btn"><i
             class="material-icons left">chevron_left</i>背景色の変更</a>
@@ -90,14 +102,22 @@
             <div class="collapsible-header"><i class="material-icons">photo_size_select_small</i>グラフの大きさ</div>
             <div class="collapsible-body">
               <div class="input-field">
-                <input id="change-chart-size" type="number" class="validate" value="400">
-                <label for="change-chart-size"></label>
+                <input type="range" id="change-chart-size" min="0" max="1000" value="400" />
+                <p class='range-display'>400px</p>
               </div>
             </div>
           </li>
+        </ul>
 
       </div>
-
+      <div id="image-edit" class="full">
+        <i class="material-icons close">chevron_right</i>
+        <h4>画像の編集</h4>
+        <div class="input-field">
+          <input type="range" id="change-image-size" min="0" max="1000" value="400" />
+          <p class='range-display'>400px</p>
+        </div>
+      </div>
       <div id="color-selection" class="full">
         <i class="material-icons close">chevron_right</i>
         <h4>文字色の変更</h4>
@@ -187,7 +207,6 @@
     </div>
   </div>
 
-  <script src="js/test.js"></script>
   <script src="js/init.js"></script>
   <script src="js/theme.js"></script>
   <script src="js/sidebar.js"></script>

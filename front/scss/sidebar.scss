@@ -1,9 +1,12 @@
 @import 'variables';
 #sidebar{
+  z-index: 0;
+  >div{
+    background-color: #eee;
+  }
   left: 100% - $sidebar-width;
   width:$sidebar-width;
   padding: 2%;
-  background-color:$sidebar-bgc;
   #main-tool{
     a{
       margin: 8px;
@@ -11,7 +14,7 @@
   }
   .full{
     position: absolute;
-    top:0;
+    top:4px;
     left:0;
     width: 100%;
     height: 100%;
@@ -23,7 +26,7 @@
       margin-left: 10%;
     }
   }
-  #color-selection,#background-color-selection,#theme-selection,#vote-edit{
+  >div:not(#main-tool){
     overflow: auto;
     transform: translateX(100%);
     z-index: 30;
@@ -32,7 +35,7 @@
     }
   }
   #vote-edit{
-    background-color: $vote-edit-bgc;
+
     >ul{
       border: none;
       box-shadow:none;
@@ -42,7 +45,7 @@
       }
       div{
           border: none;
-          background-color: $vote-edit-bgc;
+          background-color: #eee;
 
           &.collapsible-header{
             border-top: 1px solid black;
@@ -75,16 +78,9 @@
       box-shadow: inset 0 0 0 2px $vote-edit-bgc;
     }
   }
-  #color-selection{
-    background-color: $color-selection-bgc;
-  }
-  #background-color-selection{
-    background-color: $background-color-selection-bgc;
 
-  }
 
   #theme-selection{
-    background-color: $theme-selection-bgc;
     >div{
       width:15vw;
       height:15vh;

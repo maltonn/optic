@@ -1,2 +1,4 @@
-transformの使う場所（chartがボケる問題）
-Chartについてupdateを使う（https://qiita.com/masato_makino/items/cfdb111fecee27fc8667　他）
+- 画像
+- フォントサイズのバグ
+- chartの大きさ問題
+- exportどうにかならんかね
