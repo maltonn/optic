@@ -84,4 +84,8 @@ i {
   text-align: center;
 }
 
+.resizable {
+  box-sizing: border-box;
+}
+
 /*# sourceMappingURL=style.css.map */

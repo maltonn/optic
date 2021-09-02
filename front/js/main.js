@@ -33,7 +33,7 @@ document.getElementById('add-vote').addEventListener('click', () => {
   let elm = document.createElement('canvas')
   elm.width = "400"
   elm.height = "400"
-  elm.classList.add('chart', 'draggable')
+  elm.classList.add('chart', 'draggable','resizable')
   current_slide.appendChild(elm)
   AddClickEvent(elm)
   Selecting(elm)
