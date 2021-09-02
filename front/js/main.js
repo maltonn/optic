@@ -50,7 +50,6 @@ document.getElementById('add-image').addEventListener('change', (e) => {
     img.classList.add('draggable','resizable')
     document.getElementById(current_slide_id).appendChild(img)
     AddClickEvent(img)
-    document.getElementById('image-edit').style.transform = "translateX(0)"
   }
   // ファイル読み込みを実行
   reader.readAsDataURL(fileData);
@@ -76,7 +75,6 @@ function Selecting(target) {
     document.getElementById('color-selection').style.transform = "translateX(100%)"
     document.getElementById('background-color-selection').style.transform = "translateX(100%)"
     document.getElementById('vote-edit').style.transform = "translateX(100%)"
-    document.getElementById('image-edit').style.transform = "translateX(100%)"
     return;
   }
   nowPointing.style.outline = "2px dotted black"
@@ -163,14 +161,6 @@ function AddClickEvent(elm) {
     elm.addEventListener('click', function () {
       Selecting(elm)
       document.getElementById('vote-edit').style.transform = "translateX(0)"
-    })
-  } else if (elm.tagName == "IMG") {
-    elm.addEventListener('click', function () {
-      Selecting(elm)
-      document.getElementById('image-edit').style.transform = "translateX(0)"
-      image_size_range=document.getElementById('change-image-size')
-      image_size_range.value=this.style.height
-      image_size_range.nextSibling.nextSibling.innerText=this.style.height+'px'
     })
   }
   else {

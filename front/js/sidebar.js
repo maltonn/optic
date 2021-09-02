@@ -62,10 +62,8 @@ function InitEditVote(){
     }
     s+='<i id="add-vote-choice" class="material-icons tooltipped" data-position="right" data-tooltip="選択肢を追加">add</i>'
     document.getElementById('vote-choices').innerHTML=s
-    document.getElementById('change-chart-size').value=document.getElementById(current_slide_id).getElementsByTagName('canvas')[0].width
   }else{
     document.getElementById('vote-choices').innerHTML='<div class="input-field"> <input id="title" type="text" class="validate"> <label for="title">タイトル</label> </div><div class="input-field-div"> <div class="input-field"> <input id="choice1" type="text" class="validate" value="選択肢1"> <label for="choice1"></label> </div><i class="material-icons" onclick="DeleteThis(this.parentNode)">close</i> </div><div class="input-field-div"> <div class="input-field"> <input id="choice2" type="text" class="validate" value="選択肢2"> <label for="choice2"></label> </div><i class="material-icons" onclick="DeleteThis(this.parentNode)">close</i> </div><i id="add-vote-choice" class="material-icons tooltipped" data-position="right" data-tooltip="選択肢を追加">add</i> '
-    document.getElementById('change-chart-size').value="400"
   }
   document.getElementById('add-vote-choice').addEventListener('click',function(){
     choice_num++
@@ -85,23 +83,6 @@ function InitEditVote(){
 }
 
 InitEditVote()
-document.getElementById('change-chart-size').addEventListener('change',function(){
-  let size=this.value
-  let chart=document.getElementById(current_slide_id).getElementsByTagName('canvas')[0]
-  let size_display=this.nextSibling.nextSibling.nextSibling
-  size_display.innerText=size+'px'
-  chart.width=size
-  chart.height=size
-})
-
-img_size_input=document.getElementById('change-image-size')
-img_size_input.addEventListener('change',()=>{
-  console.log(nowPointing);
-  (nowPointing||document.getElementById(current_slide_id)).style.height=img_size_input.value+'px'
-  img_size_input.nextElementSibling.nextElementSibling.innerText=img_size_input.value+'px'
-})
-
-
 
 
 close_btns=document.getElementsByClassName('close')

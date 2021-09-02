@@ -5,7 +5,7 @@ document.addEventListener('keydown', (e) => {
     }
   }else {
     if (e.key == "Backspace") {
-      if (nowPointing && ['P','H1','H2'].includes(nowPointing.tagName)) {
+      if (nowPointing && ['P','H1','H2'].includes(nowPointing.tagName) || document.activeElement != document.body) {
         return;
       }
       if (nowPointing) {
