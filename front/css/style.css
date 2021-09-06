@@ -84,4 +84,8 @@ i {
   box-sizing: border-box;
 }
 
+#font-size-div {
+  display: none;
+}
+
 /*# sourceMappingURL=style.css.map */

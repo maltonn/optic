@@ -67,6 +67,8 @@ document.getElementById('editor').addEventListener('click', (e) => {
 var isWaitingDouble = false
 
 function Selecting(target) {
+  document.getElementById('font-size-div').style.display=(target && target.tagName=='P')?'block':'none'
+
   if (nowPointing) {
     nowPointing.style.outline = ""
   }
