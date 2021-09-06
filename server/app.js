@@ -26,6 +26,7 @@ app.use(function(req, res, next) { //CORSの許可 ローカルファイルか�
   next();
 });
 
+/* room_idの重複を防ぐためのやつ：適当に作っても普通は重複しなさそうなのでコメントアウト
 room_id_lst=[]
 app.get('/get-room-id',dfs=function(req,res){
   params={}
@@ -43,6 +44,7 @@ app.get('/get-room-id',dfs=function(req,res){
     res.json({'id':id})
   }
 })
+*/
 
 /*サーバーにslideファイルを置いとく時用?
 const crypto = require('crypto');
@@ -80,12 +82,14 @@ app.post('/display',function(req,res){
 })
 */
 
+/*サーバーに投票とかのファイルを置いとくよう
 app.get('/comments', function(req, res){
   res.sendFile(__dirname + '/html/archive.html');
 });
 app.get('/client', function(req, res){
   res.sendFile(__dirname + '/html/client.html');
 });
+*/
 
 current_chc={}
 io.of('c').on('connection', (socket)=>{ //client
