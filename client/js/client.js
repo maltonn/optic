@@ -3,7 +3,7 @@ try{
 
     location.href.split('?')[1].split('&').forEach((e)=>{params[e.split('=')[0]]=e.split('=')[1]})
 }catch{
-    params['r']='AXVB'
+    params['r']=window.prompt('コードを入力')
 }
 req_origin='http://localhost:3000'
 socket = io(`${req_origin}/c?r='${params['r']}'`);
@@ -20,6 +20,7 @@ col_num=0
 answer=""
 choices_for_redo=null
 socket.on('question', function (choices) {
+    console.log(choices)
     if (!choices){
         ShowWaiting("ここに選択肢が表示されます。")
         redo.style.display="none"
