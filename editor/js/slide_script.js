@@ -2,7 +2,7 @@ var N=4
 var S="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 room_id=Array.from(Array(N)).map(()=>S[Math.floor(Math.random()*S.length)]).join('')
 req_origin='http://localhost:3000'
-//slide_script=`
+slide_script=`
 socket = io("${req_origin}/d?r=${room_id}");
 socket.emit("room", "${room_id}");
 var current_slide = top_slide;
@@ -122,4 +122,4 @@ socket.on("comment", function (e) {
 document.addEventListener("click", function () {
     main_func()
 });
-//`
+`
