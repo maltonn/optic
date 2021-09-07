@@ -16,7 +16,6 @@ document.addEventListener('keydown', (e) => {
         }
         let cscd = document.getElementById(current_slide_id + "-clone-div")
         let ncscd = (cscd.nextElementSibling || cscd.previousElementSibling)
-        log(ncscd)
         if (!ncscd) {
           return;
         }
