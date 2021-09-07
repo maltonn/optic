@@ -119,7 +119,6 @@ io.of('/d').on('connection', function(socket){//display
     socket.on('question', function(ch){
       current_chc[room_id]=ch
       io.of('/c').to(room_id).emit('question', ch);
-      console.log(ch)
     })
     socket.on('end_voting', function(){
       io.of('/c').to(room_id).emit('question',null);

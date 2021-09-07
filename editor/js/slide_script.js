@@ -102,20 +102,21 @@ socket.on("answer", function (e) {
 })
 
 socket.on("redo", function (e) {
-    index = chc_list.indexOf(e),
-        ans_list[index] -= 1,
-        chart_class.update()
+    index = chc_list.indexOf(e)
+    ans_list[index] -= 1
+    chart_class.update()
 })
 
 socket.on("comment", function (e) {
-    console.log(e),
-        e.length > 32 && (e = e.slice(0, 33)),
-        elm = document.createElement("p"),
-        elm.innerHTML = e,
-        elm.classList.add("comment"),
-        elm.style.top = 90 * Math.random() + "%",
-        elm.style.animationName = "shed",
-        document.body.appendChild(elm)
+    if (e.length > 32) {
+        e = e.slice(0, 33)
+    }
+    elm = document.createElement("p")
+    elm.innerHTML = e
+    elm.classList.add("comment")
+    elm.style.top = 90 * Math.random() + "%"
+    elm.style.animationName = "shed"
+    document.body.appendChild(elm)
 })
 
 document.addEventListener("click", function () {
