@@ -128,13 +128,13 @@ io.of('/d').on('connection', function(socket){//display
   
 });
 
+/*
 io.of('/a').on('connection',function(socket){
-  /*
   for(i=0;i<comments_list.length;i++){
     io.of('/a').emit('comment',comments_list[i])
   }
-  */
 })
+*/
 
 
 server.listen(port, function(){

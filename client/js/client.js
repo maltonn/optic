@@ -1,6 +1,12 @@
 params={}
-location.href.split('?')[1].split('&').forEach((e)=>{params[e.split('=')[0]]=e.split('=')[1]})
-var socket = io('/c');
+try{
+
+    location.href.split('?')[1].split('&').forEach((e)=>{params[e.split('=')[0]]=e.split('=')[1]})
+}catch{
+    params['r']='AXVB'
+}
+req_origin='http://localhost:3000'
+socket = io(`${req_origin}/c?r='${params['r']}'`);
 if (params['r']){
     socket.emit('room',params['r'])
 }else{
