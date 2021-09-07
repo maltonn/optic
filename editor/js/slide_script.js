@@ -46,7 +46,7 @@ function Drow(ctx, title, labels, data, type) {
             }]
         },
         options: {
-            responsive: true,
+            responsive: false,
             maintainAspectRatio: false,
         }
     }),
