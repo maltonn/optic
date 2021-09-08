@@ -1,6 +1,2 @@
 cd C:\Users\user\projects\hpp\front\
 sass --style expanded --watch scss:css
-
-# TODO
-#完成品の位置が若干ずれる
-#テーマの２重押し防止
