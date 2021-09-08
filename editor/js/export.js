@@ -44,6 +44,16 @@ function Export() { //room idが重複しないようサーバーに問い合わ
 function Export() { //room idは重複しない前提でローカルで適当に作る(room_idの作成はslide_script.jsに移行)
   Selecting(null)
 
+  //編集中のスライドをclone-divに落とす
+  let preview = document.getElementById(current_slide_id).cloneNode(true)
+  preview.id = current_slide_id + "-clone"
+  let preview_div = document.getElementById(current_slide_id + "-clone-div")
+  DeleteAllChild(preview_div)
+  preview_div.appendChild(preview)
+  mask = AddMask(preview_div, current_slide_id)
+  mask.innerHTML = "<p>Now Editing..</p>"
+  mask.style.backgroundColor = "rgba(191, 54, 12,.8)"
+
   slides = document.querySelectorAll('.clone-div > section')
 
   slide_style = "html,body{overflow:hidden;margin:0;padding:0;}"
@@ -51,7 +61,7 @@ function Export() { //room idは重複しない前提でローカルで適当に
 
   output = ""
   output = '<!DOCTYPE html><html lang="ja"><head><title>仮のタイトル</title><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><style>' + slide_style + theme_style.innerHTML + '</style></head><body>'
-  output += '<section id="top_slide"><img src="https://chart.apis.google.com/chart?chs=400x400&cht=qr&chl=' + req_origin +'/client?r=' + room_id + '"></img><p>click to start</p></section>'
+  output += `<section id="top_slide"><img src="https://chart.apis.google.com/chart?chs=400x400&cht=qr&chl=${req_origin}/client?r=${room_id}"></img><p>click to start</p></section>`
 
   for (let i = 0; i <= slides.length; i++) {
     if (!slides[i]) {
