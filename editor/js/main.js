@@ -67,7 +67,16 @@ document.getElementById('editor').addEventListener('click', (e) => {
 var isWaitingDouble = false
 
 function Selecting(target) {
-  document.getElementById('font-size-div').style.display=(target && target.tagName=='P')?'block':'none'
+  if(target && target.tagName=='P'){
+    document.getElementById('font-size-div').style.display='block'
+    fs_input=document.getElementById('font-size')
+    fsize=target.style.fontSize?target.style.fontSize.slice(0,target.style.fontSize.length-2):'40'
+    fs_input.value=fsize
+    fs_input.nextElementSibling.nextElementSibling.innerText=fsize+'px'
+
+  }else{
+    document.getElementById('font-size-div').style.display='none'
+  }
 
   if (nowPointing) {
     nowPointing.style.outline = ""
