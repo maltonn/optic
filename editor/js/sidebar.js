@@ -6,45 +6,6 @@ fs_input.addEventListener('change',()=>{
 })
 
 
-
-//cc : color-change
-cc_sel_div=document.getElementById('color-selection')
-cc_sel_ipts=document.querySelectorAll('#color-selection input')
-document.getElementById('change-chara-color-btn').addEventListener('click',()=>{
-  cc_sel_div.style.transform="translateX(0)"
-})
-cc_sel_div.addEventListener('change',()=>{
-  for(i=0;i<cc_sel_ipts.length;i++){
-    if(cc_sel_ipts[i].checked){
-      if(nowPointing){
-        nowPointing.style.color=cc_sel_ipts[i].value
-      }else{
-        document.getElementById(current_slide_id).style.color=cc_sel_ipts[i].value
-      }
-      break
-    }
-  }
-})
-
-cbc_sel_div=document.getElementById('background-color-selection')
-cbc_sel_ipts=document.querySelectorAll('#background-color-selection input')
-document.getElementById('change-background-color-btn').addEventListener('click',()=>{
-  isChangingBackground=true
-  cbc_sel_div.style.transform="translateX(0)"
-})
-cbc_sel_div.addEventListener('change',()=>{
-  for(i=0;i<cbc_sel_ipts.length;i++){
-    if(cbc_sel_ipts[i].checked){
-      if(nowPointing){
-        nowPointing.style.backgroundColor=cbc_sel_ipts[i].value
-      }else{
-        document.getElementById(current_slide_id).style.backgroundColor=cbc_sel_ipts[i].value
-      }
-      break
-    }
-  }
-})
-
 document.getElementById('change-theme-btn').addEventListener('click',()=>{
   theme_sel_div=document.getElementById('theme-selection')
   theme_sel_div.style.transform="translateX(0)"
@@ -92,21 +53,13 @@ for(i=0;i<close_btns.length;i++){
   })
 }
 
-function InitSidebar(target){
-  for(i=0;i<cc_sel_ipts.length;i++){//#chara-color-selection の input でチェックされているものをはずす
-    let col=cc_sel_ipts[i]
-    let nowcol=nowPointing.style.color
-    col.checked=false
-    if(col.value==nowcol){
-      col.checked=true
-    }
-  }
-  for(i=0;i<cbc_sel_ipts.length;i++){
-    let col=cbc_sel_ipts[i]
-    let nowcol=nowPointing.style.backgroundColor
-    col.checked=false
-    if(col.value==nowcol){
-      col.checked=true
-    }
-  }
-}
+
+document.getElementById('change-background-color').addEventListener('change',function(){
+  this.previousElementSibling .style.color=this.value;
+  (nowPointing||document.getElementById(current_slide_id)).style.backgroundColor=this.value
+})
+
+document.getElementById('change-font-color').addEventListener('change',function(){
+  this.previousElementSibling .style.color=this.value;
+  (nowPointing||document.getElementById(current_slide_id)).style.color=this.value
+})

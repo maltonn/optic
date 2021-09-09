@@ -1,2 +1,2 @@
-cd C:\Users\user\projects\hpp\front\
+cd editor
 sass --style expanded --watch scss:css

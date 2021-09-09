@@ -28,6 +28,9 @@ for i,var in enumerate(var_lst):
 #sidebar > div {
   background-color: #eee;
 }
+#sidebar #main-tool label {
+  color: black;
+}
 #sidebar #main-tool a {
   margin: 8px;
 }
@@ -52,6 +55,13 @@ for i,var in enumerate(var_lst):
 }
 #sidebar > div:not(#main-tool) h4, #sidebar > div:not(#main-tool) span {
   color: #212121;
+}
+#sidebar .divider {
+  margin-bottom: 16px;
+}
+#sidebar #change_style_div {
+  position: absolute;
+  top: 50%;
 }
 #sidebar #vote-edit > ul {
   border: none;

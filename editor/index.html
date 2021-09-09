@@ -32,30 +32,48 @@
     <div id="sidebar">
       <div id="main-tool">
         <div id='add_elements_div'>
-          <i id="add-p" class="material-icons tooltipped medium " data-position="bottom" data-tooltip="テキスト">text_fields</i>
-          <i id="add-vote" class="material-icons tooltipped medium " data-position="bottom" data-tooltip="投票">insert_chart</i>
+          <i id="add-p" class="material-icons tooltipped medium " data-position="bottom"
+            data-tooltip="テキスト">text_fields</i>
+          <i id="add-vote" class="material-icons tooltipped medium " data-position="bottom"
+            data-tooltip="投票">insert_chart</i>
 
-          <label for="add-image" style='color:black'>
+          <label for="add-image">
             <i class="material-icons tooltipped medium " data-position="bottom" data-tooltip="画像">image</i>
           </label>
-          <input id="add-image" type="file"  accept="image/jpeg, image/png" style='display:none'>
+          <input id="add-image" type="file" accept="image/jpeg, image/png" style='display:none'>
 
           <i id="" class="material-icons tooltipped medium " data-position="bottom" data-tooltip="">add</i>
         </div>
-        <div class="divider"></div>
-
-        <div id='font-size-div' class="input-field">
-          <p>フォントサイズ</p>
-          <input id='font-size' type="range" id="test5" min="0" max="100" />
-          <p class='range-display'></p>
-        </div>
-        <a id="change-background-color-btn" class="waves-effect waves-light btn"><i
-            class="material-icons left">chevron_left</i>背景色の変更</a>
-        <a id="change-chara-color-btn" class="waves-effect waves-light btn"><i
-            class="material-icons left">chevron_left</i>文字色の変更</a>
         <a id="change-theme-btn" class="waves-effect waves-light btn"><i
-            class="material-icons left">chevron_left</i>テーマ</a>
+          class="material-icons left">chevron_left</i>テーマ</a>
+
+        <div id='change_style_div'>
+          <div class="divider"></div>
+          <label for='change-background-color'>
+            <i class="material-icons tooltipped medium " data-position="bottom"
+              data-tooltip="背景色の変更">format_color_fill</i>
+          </label>
+          <input type='color' id="change-background-color" class='invisible'></input>
+
+          <label for='change-font-color'>
+            <i class="material-icons tooltipped medium " data-position="bottom"
+              data-tooltip="文字色の変更">format_color_text</i>
+          </label>
+          <input type='color' id="change-font-color" class='invisible'></input>
+
+          <div id='font-size-div' class="input-field">
+            <p>フォントサイズ</p>
+            <input id='font-size' type="range" id="test5" min="0" max="200" />
+            <p class='range-display'></p>
+          </div>
+        </div>
+
+
       </div>
+
+
+
+
       <div id="vote-edit" class="full">
         <i class="material-icons close">chevron_right</i>
         <h4>投票の編集</h4>
@@ -76,13 +94,14 @@
                   <i class="material-icons" onclick="DeleteThis(this.parentNode)">close</i>
                 </div>
                 <div class="input-field-div">
-                <div class="input-field">
-                  <input id="choice2" type="text" class="validate" value="選択肢2">
-                  <label for="choice2"></label>
+                  <div class="input-field">
+                    <input id="choice2" type="text" class="validate" value="選択肢2">
+                    <label for="choice2"></label>
+                  </div>
+                  <i class="material-icons" onclick="DeleteThis(this.parentNode)">close</i>
                 </div>
-                <i class="material-icons" onclick="DeleteThis(this.parentNode)">close</i>
-              </div>
-                <i id="add-vote-choice" class="material-icons tooltipped" data-position="right" data-tooltip="選択肢を追加">add</i>
+                <i id="add-vote-choice" class="material-icons tooltipped" data-position="right"
+                  data-tooltip="選択肢を追加">add</i>
               </div>
             </div>
           </li>
@@ -100,74 +119,6 @@
           </li>
         </ul>
 
-      </div>
-      <div id="color-selection" class="full">
-        <i class="material-icons close">chevron_right</i>
-        <h4>文字色の変更</h4>
-        <p>
-          <label>
-            <input name="col" type="radio" value="red" />
-            <span>Red</span>
-          </label>
-        </p>
-        <p>
-          <label>
-            <input name="col" type="radio" value="yellow" />
-            <span>Yellow</span>
-          </label>
-        </p>
-        <p>
-          <label>
-            <input name="col" type="radio" value="green" />
-            <span>Green</span>
-          </label>
-        </p>
-        <p>
-          <label>
-            <input name="col" type="radio" value="brown" />
-            <span>Brown</span>
-          </label>
-        </p>
-        <p>
-          <label>
-            <input name="col" type="radio" value="white" />
-            <span>White</span>
-          </label>
-        </p>
-      </div>
-      <div id="background-color-selection" class="full">
-        <i class="material-icons close">chevron_right</i>
-        <h4>背景色の変更</h4>
-        <p>
-          <label>
-            <input name="col" type="radio" value="red" />
-            <span>Red</span>
-          </label>
-        </p>
-        <p>
-          <label>
-            <input name="col" type="radio" value="yellow" />
-            <span>Yellow</span>
-          </label>
-        </p>
-        <p>
-          <label>
-            <input name="col" type="radio" value="green" />
-            <span>Green</span>
-          </label>
-        </p>
-        <p>
-          <label>
-            <input name="col" type="radio" value="brown" />
-            <span>Brown</span>
-          </label>
-        </p>
-        <p>
-          <label>
-            <input name="col" type="radio" value="white" />
-            <span>White</span>
-          </label>
-        </p>
       </div>
       <div id="theme-selection" class="full">
         <i class="material-icons close">chevron_right</i>
@@ -193,12 +144,17 @@
   <script src="js/theme.js"></script>
   <script src="js/sidebar.js"></script>
   <script src="js/main.js"></script>
+  <script src='js/add_elements.js'></script>
   <script src="js/shortcut.js"></script>
+  <!--
   <script src="http://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    -->
   <script src='js/slide_script.js'></script>
   <script src="js/export.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <!--
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>]
+  -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/interactjs@next/dist/interact.min.js"></script>
   <script src="js/dd.js"></script>

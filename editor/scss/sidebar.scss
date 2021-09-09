@@ -8,6 +8,9 @@
   width:$sidebar-width;
   padding: 2%;
   #main-tool{
+    label{
+      color: black;
+    }
     a{
       margin: 8px;
     }
@@ -33,6 +36,13 @@
     h4,span{
       color:$text-color;
     }
+  }
+  .divider{
+    margin-bottom: 16px;
+  }
+  #change_style_div{
+    position: absolute;
+    top: 50%;
   }
   #vote-edit{
 

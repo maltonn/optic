@@ -2,61 +2,6 @@
 var nowPointing = null
 
 
-document.getElementById('add-p').addEventListener('click', () => {
-  let elm = document.createElement('p')
-  ///
-  /*
-  isNowTyping=true
-  let text = window.prompt('テキストの追加')
-  isNowTyping=false
-  if (!text) {
-    return;
-  }
-  */
-
-  elm.innerText = 'new text'
-  elm.classList.add('draggable')
-  elm.setAttribute('contenteditable', 'true')
-  AddClickEvent(elm)
-  document.getElementById(current_slide_id).appendChild(elm)
-  Selecting(elm)
-})
-
-document.getElementById('add-vote').addEventListener('click', () => {
-  if (question_obj[current_slide_id]) {
-    alert('投票は一つのページにつき1つです。')
-    return;
-  }
-  question_obj[current_slide_id] = ['', '選択肢1', '選択肢2']
-  let current_slide = document.getElementById(current_slide_id)
-  current_slide.classList.add('vote')
-  let elm = document.createElement('canvas')
-  elm.width = "400"
-  elm.height = "400"
-  elm.classList.add('chart', 'draggable','resizable')
-  current_slide.appendChild(elm)
-  AddClickEvent(elm)
-  Selecting(elm)
-  document.getElementById('vote-edit').style.transform = "translateX(0)"
-})
-
-document.getElementById('add-image').addEventListener('change', (e) => {
-  var fileData = e.target.files[0];
-
-  var reader = new FileReader();
-  reader.onload = function () {
-    var img = document.createElement('img');
-    img.src = reader.result;
-    img.classList.add('draggable','resizable')
-    document.getElementById(current_slide_id).appendChild(img)
-    AddClickEvent(img)
-  }
-  // ファイル読み込みを実行
-  reader.readAsDataURL(fileData);
-})
-
-
-
 document.getElementById('editor').addEventListener('click', (e) => {
   if (e.target.tagName == "SECTION") {
     Selecting(null)
@@ -67,29 +12,34 @@ document.getElementById('editor').addEventListener('click', (e) => {
 var isWaitingDouble = false
 
 function Selecting(target) {
-  if(target && target.tagName=='P'){
+  console.log({target})
+  if (nowPointing) {
+    nowPointing.style.outline = ""
+  }
+  if(!target){
+    nowPointing = null
+    document.getElementById('change-background-color').previousElementSibling.style.color=document.getElementById(current_slide_id).style.backgroundColor||'black'
+    document.getElementById('change-font-color').previousElementSibling.style.color=document.getElementById(current_slide_id).style.color||'black'
+    document.getElementById('vote-edit').style.transform='translateX(100%)'
+    document.getElementById('font-size-div').style.display='none'
+    return
+  }
+  nowPointing = target
+  nowPointing.style.outline = "2px dotted black"
+
+  document.getElementById('change-background-color').previousElementSibling.style.color=target.style.backgroundColor|'black'
+  document.getElementById('change-font-color').previousElementSibling.style.color=target.style.color|'black'
+
+  if(target.tagName=='P'){
     document.getElementById('font-size-div').style.display='block'
     fs_input=document.getElementById('font-size')
     fsize=target.style.fontSize?target.style.fontSize.slice(0,target.style.fontSize.length-2):'40'
     fs_input.value=fsize
     fs_input.nextElementSibling.nextElementSibling.innerText=fsize+'px'
-
   }else{
     document.getElementById('font-size-div').style.display='none'
   }
 
-  if (nowPointing) {
-    nowPointing.style.outline = ""
-  }
-  nowPointing = target
-  if (!target) {
-    document.getElementById('color-selection').style.transform = "translateX(100%)"
-    document.getElementById('background-color-selection').style.transform = "translateX(100%)"
-    document.getElementById('vote-edit').style.transform = "translateX(100%)"
-    return;
-  }
-  nowPointing.style.outline = "2px dotted black"
-  InitSidebar(target)
 }
 
 
