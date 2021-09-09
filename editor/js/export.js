@@ -61,7 +61,7 @@ function Export() { //room idは重複しない前提でローカルで適当に
 
   output = ""
   output = '<!DOCTYPE html><html lang="ja"><head><title>仮のタイトル</title><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><style>' + slide_style + theme_style.innerHTML + '</style></head><body>'
-  output += `<section id="top_slide"><img src="https://chart.apis.google.com/chart?chs=400x400&cht=qr&chl=${req_origin}/client?r=${room_id}"></img><p>click to start</p></section>`
+  output += `<section id="top_slide"><img src="https://chart.apis.google.com/chart?chs=400x400&cht=qr&chl=${req_origin}/client?r=${room_id}"></img><p>[→] to start</p></section>`
 
   for (let i = 0; i <= slides.length; i++) {
     if (!slides[i]) {
