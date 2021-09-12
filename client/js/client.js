@@ -20,7 +20,6 @@ col_num=0
 answer=""
 choices_for_redo=null
 socket.on('question', function (choices) {
-    console.log(choices)
     if (!choices){
         ShowWaiting("ここに選択肢が表示されます。")
         redo.style.display="none"
