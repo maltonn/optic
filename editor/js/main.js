@@ -12,7 +12,6 @@ document.getElementById('editor').addEventListener('click', (e) => {
 var isWaitingDouble = false
 
 function Selecting(target) {
-  console.log({target})
   if (nowPointing) {
     nowPointing.style.outline = ""
   }

@@ -1,6 +1,5 @@
 fs_input=document.getElementById('font-size')
 fs_input.addEventListener('change',()=>{
-  console.log((nowPointing||document.getElementById(current_slide_id)));
   (nowPointing||document.getElementById(current_slide_id)).style.fontSize=fs_input.value+'px'
   fs_input.nextElementSibling.nextElementSibling.innerText=fs_input.value+'px'
 })
