@@ -257,7 +257,7 @@ function Export() { //room idは重複しない前提でローカルで適当に
           </div>
 
           <section id="top_slide" style="z-index: 100;"><img
-                  src="https://chart.apis.google.com/chart?chs=400x400&amp;cht=qr&amp;chl=${req_origin}/client?r=${room_id}">
+                  src="https://chart.apis.google.com/chart?chs=400x400&cht=qr&chl=${req_origin}/client?r=${room_id}">
               <p>[→] to start</p>
           </section>
           ${slide_str}
@@ -338,7 +338,7 @@ function Export() { //room idは重複しない前提でローカルで適当に
                       q = question_obj[current_slide.previousElementSibling.id]
                       socket.emit("question", q)
                   }
-                  current_slide.previousElementSibling.style.display = "block"
+                  current_slide.previousElementSibling.style.display = "flex"
                   current_slide = current_slide.previousElementSibling
               }
 
@@ -389,12 +389,14 @@ function Export() { //room idは重複しない前提でローカルで適当に
               })
 
               document.addEventListener('keydown', (e) => {
-                  if (e.key == 'ArrowRight') {
-                      next_slide()
-                  } else if (e.key == 'ArrowLeft') {
-                      previous_slide()
-                  }
-              })
+                e.preventDefault()
+                if (e.key == 'ArrowRight') {
+                    next_slide()
+                } else if (e.key == 'ArrowLeft') {
+                    previous_slide()
+                }
+            },{passive:false})
+    
 
               comment_mode = 1
               document.getElementById('vtuber_like_comment_div').style.display = 'none'
