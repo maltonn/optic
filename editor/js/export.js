@@ -1,6 +1,6 @@
 ddb = document.getElementById('download-div-black')
-req_origin = 'http://localhost:3000'//'https://vote-slide.herokuapp.com'
-
+req_origin = 'https://maltonn.github.io/optic'
+socket_origin = 'http://localhost:3000'
 function Export() { //room idは重複しない前提でローカルで適当に作る(room_idの作成はslide_script.jsに移行)
     Selecting(null)
     //編集中のスライドをclone-divに落とす
@@ -28,9 +28,8 @@ function Export() { //room idは重複しない前提でローカルで適当に
     var N = 4
     var S = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     room_id = Array.from(Array(N)).map(() => S[Math.floor(Math.random() * S.length)]).join('')
-    req_origin = 'http://localhost:3000'
-    question_obj_str = JSON.stringify(question_obj)
 
+    question_obj_str = JSON.stringify(question_obj)
 
     output_html =
         `
@@ -271,7 +270,7 @@ function Export() { //room idは重複しない前提でローカルで適当に
           <script src="https://cdn.jsdelivr.net/npm/interactjs@next/dist/interact.min.js"></script>
           <script>question_obj=${question_obj_str}</script>
           <script>
-              socket = io("http://localhost:3000/d?r=${room_id}");
+              socket = io("${socket_origin}/d?r=${room_id}");
               socket.emit("room", "${room_id}");
               var current_slide = top_slide;
 
