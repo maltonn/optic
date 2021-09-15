@@ -221,7 +221,7 @@
     </div>
 
     <section id="top_slide" style="z-index: 100;"><img
-            src="https://chart.apis.google.com/chart?chs=400x400&cht=qr&chl=http://localhost:3000/client?r=BCWM">
+            src="https://chart.apis.google.com/chart?chs=400x400&cht=qr&chlhttps://websocket-maltonn8.an.r.appspot.com/client?r=BCWM">
         <p>[→] to start</p>
     </section>
     <section id="slide1" class="">
@@ -263,7 +263,7 @@
     <script src="https://cdn.jsdelivr.net/npm/interactjs@next/dist/interact.min.js"></script>
     <script>question_obj={ "slide2": ["Vote!!!", "choice1", "choice2"], "slide3": ["fruits?", "apple", "banana", "orange"] }</script>
     <script>
-        socket = io("http://localhost:3000/d?r=BCWM");
+        socket = io("https://websocket-maltonn8.an.r.appspot.com/d?r=BCWM");
         socket.emit("room", "BCWM");
         var current_slide = top_slide;
 
@@ -381,10 +381,11 @@
         })
 
         document.addEventListener('keydown', (e) => {
-            e.preventDefault()
             if (e.key == 'ArrowRight') {
+                e.preventDefault()
                 next_slide()
             } else if (e.key == 'ArrowLeft') {
+                e.preventDefault()
                 previous_slide()
             }
         },{passive:false})

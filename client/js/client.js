@@ -5,7 +5,7 @@ try{
 }catch{
     params['r']=window.prompt('コードを入力')
 }
-req_origin='http://localhost:3000'
+req_origin='https://websocket-maltonn8.an.r.appspot.com'
 socket = io(`${req_origin}/c?r='${params['r']}'`);
 if (params['r']){
     socket.emit('room',params['r'])
