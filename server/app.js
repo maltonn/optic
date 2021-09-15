@@ -32,11 +32,11 @@ const io = require("socket.io")(server, {//cors許可
   }
 });
 
-/*
 app.get('/', (req, res) => {
-  res.render('index.pug');
+  res.render('index.html');
 });
 
+/*
 io.on('connection', socket => {
   socket.on('chat message', msg => {
     io.emit('chat message', msg);
