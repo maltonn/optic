@@ -42,22 +42,24 @@
           </label>
           <input id="add-image" type="file" accept="image/jpeg, image/png" style='display:none'>
 
-          <i id="" class="material-icons tooltipped medium " data-position="bottom" data-tooltip="">add</i>
+          <i id="add-iframe" class="material-icons tooltipped medium " data-position="bottom"
+            data-tooltip="Webページ">insert_drive_file</i>
+
+          <i id="add-html" class="material-icons tooltipped medium " data-position="bottom"
+            data-tooltip="任意のHTML">add</i>
         </div>
         <a id="change-theme-btn" class="waves-effect waves-light btn"><i
-          class="material-icons left">chevron_left</i>テーマ</a>
+            class="material-icons left">chevron_left</i>テーマ</a>
 
         <div id='change_style_div'>
           <div class="divider"></div>
           <label for='change-background-color'>
-            <i class="material-icons tooltipped" data-position="bottom"
-              data-tooltip="背景色の変更">format_color_fill</i>
+            <i class="material-icons tooltipped" data-position="bottom" data-tooltip="背景色の変更">format_color_fill</i>
           </label>
           <input type='color' id="change-background-color" class='invisible'></input>
 
           <label for='change-font-color'>
-            <i class="material-icons tooltipped" data-position="bottom"
-              data-tooltip="文字色の変更">format_color_text</i>
+            <i class="material-icons tooltipped" data-position="bottom" data-tooltip="文字色の変更">format_color_text</i>
           </label>
           <input type='color' id="change-font-color" class='invisible'></input>
 
@@ -71,8 +73,35 @@
 
       </div>
 
+      <div id="add-iframe-setting" class="full"> <i class="material-icons close">chevron_right</i>
+        <h4>Webページを挿入</h4>
+        <div class="input-field">
+          <input id="iframe-url" type="text" class="validate">
+          <label for="iframe-url">URL</label>
+        </div>
 
 
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="iframe-width" type="text" class="validate" value='0'>
+            <label for="iframe-width">width</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="iframe-height" type="text" class="validate" value='0'>
+            <label for="iframe-height">height</label>
+          </div>
+        </div>
+        <a id='cretate-iframe' class="waves-effect waves-light btn">Create!</a>
+      </div>
+
+      <div id="add-html-setting" class="full"> <i class="material-icons close">chevron_right</i>
+        <h4>HTMLを追加</h4>
+        <div class="input-field">
+          <textarea id="html_textarea" class="materialize-textarea"></textarea>
+          <label for="html_textarea">HTML</label>
+        </div>
+        <a id='create-html' class="waves-effect waves-light btn">Create!</a>
+      </div>
 
       <div id="vote-edit" class="full">
         <i class="material-icons close">chevron_right</i>
@@ -120,6 +149,8 @@
         </ul>
 
       </div>
+
+
       <div id="theme-selection" class="full">
         <i class="material-icons close">chevron_right</i>
         <h4>テーマを選択</h4>
@@ -136,7 +167,7 @@
     </div>
   </div>
   <a id="download" class="none" href="#" download="slide.html">自動的にダウンロードされない場合</a>
-  
+
   <script src="js/init.js"></script>
   <script src="js/theme.js"></script>
   <script src="js/sidebar.js"></script>

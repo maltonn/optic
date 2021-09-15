@@ -1,12 +1,12 @@
 
 document.getElementById('add-p').addEventListener('click', () => {
-    let elm = document.createElement('p')
-    elm.innerText = 'new text'
-    elm.classList.add('draggable')
-    elm.setAttribute('contenteditable', 'true')
-    AddClickEvent(elm)
-    document.getElementById(current_slide_id).appendChild(elm)
-    Selecting(elm)
+    let p = document.createElement('p')
+    p.innerText = 'new text'
+    p.classList.add('draggable')
+    p.setAttribute('contenteditable', 'true')
+    AddClickEvent(p)
+    document.getElementById(current_slide_id).appendChild(p)
+    Selecting(p)
   })
   
   document.getElementById('add-vote').addEventListener('click', () => {
@@ -40,4 +40,43 @@ document.getElementById('add-p').addEventListener('click', () => {
     }
     // ファイル読み込みを実行
     reader.readAsDataURL(fileData);
+  })
+
+  document.getElementById('add-iframe').addEventListener('click',()=>{
+    document.getElementById('add-iframe-setting').style.transform='translateX(0)'
+    document.getElementById('iframe-width').value=window.innerWidth
+    document.getElementById('iframe-height').value=window.innerHeight
+  })
+
+  document.getElementById('cretate-iframe').addEventListener('click',()=>{
+    iframe=document.createElement('iframe')
+    url=document.getElementById('iframe-url').value
+    if(!url){
+      return
+    }
+    iframe.src=url
+    iframe.width=document.getElementById('iframe-width').value
+    iframe.height=document.getElementById('iframe-height').value
+
+    document.getElementById(current_slide_id).appendChild(iframe)
+    Selecting(iframe)
+
+    document.getElementById('add-iframe-setting').style.transform='translateX(100%)'
+  })
+
+  document.getElementById('add-html').addEventListener('click',()=>{
+    document.getElementById('add-html-setting').style.transform='translateX(0)'
+  })
+
+  document.getElementById('create-html').addEventListener('click',()=>{
+    let div=document.createElement('div')
+    div.classList.add('custom-tag','draggable')
+    input_str=document.getElementById('html_textarea').value
+    if(!input_str){
+      return
+    }
+    div.innerHTML=input_str
+    document.getElementById(current_slide_id).appendChild(div)
+    Selecting(div)
+    document.getElementById('add-html-setting').style.transform='translateX(100%)'
   })

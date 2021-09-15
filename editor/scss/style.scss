@@ -60,6 +60,18 @@ i{
   box-sizing: border-box;
 }
 
+.custom-tag{
+  padding: 10px;
+}
+
+.none{
+  display: none;
+}
+.invisible{
+  width:0;
+  height: 0;
+  opacity: 0;
+}
 
 #font-size-div{
   display: none;
