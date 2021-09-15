@@ -34,7 +34,7 @@ const io = require("socket.io")(server, {//cors許可
 
 app.get('/', (req, res) => {
   res.send('OPTIC Websocket server : see https://maltonn.github.io/optic/editor/')
-
+})
 /*
 io.on('connection', socket => {
   socket.on('chat message', msg => {
