@@ -1,7 +1,7 @@
 ddb = document.getElementById('download-div-black')
 req_origin = 'https://maltonn.github.io/optic'
 socket_origin = 'https://websocket-maltonn8.an.r.appspot.com'
-function Export() { //room idは重複しない前提でローカルで適当に作る(room_idの作成はslide_script.jsに移行)
+function Export() { 
     Selecting(null)
     //編集中のスライドをclone-divに落とす
     let preview = document.getElementById(current_slide_id).cloneNode(true)
