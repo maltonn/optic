@@ -272,10 +272,24 @@
         })();
 
         slides_list = document.getElementsByTagName('section')
+        
+        chc_data=[] //2d array
+        ans_data=[]
+        chart_class_lst=[]
         for (i = 0; i < slides_list.length; i++) {
             slides_list[i].style.zIndex = 100 - i
-        }
+            
+            chc_data.push([])
+            ans_data.push([])
 
+            if(slides_list[i].classList.contains("vote")){
+                chart=slides_list[i].getElementsByClassName('chart')[0]
+                chart_class=Drow(chart.getContext("2d"), "vote", chc_data[i], ans_data[i], "pie")
+                chart_class_lst.push(chart_class)
+            }else{
+                chart_class_lst.push(null)
+            }
+        }
 
         function Drow(ctx, title, labels, data, type) {
             return chart_class = new Chart(ctx, {
@@ -301,20 +315,26 @@
                     maintainAspectRatio: false,
                 }
             }),
-                chart_class
+            chart_class
         }
-        charts = document.getElementsByClassName("chart")
-        chart_count = 0
-        chart = null
 
+        now_slide_no=0
         function next_slide() {
+            now_slide_no+=1
+
             if (current_slide.nextElementSibling.classList.contains("vote")) {
-                chart = charts[chart_count]
-                chart_count += 1
+                console.log(chc_data[now_slide_no])
+                console.log(ans_data[now_slide_no])
+                for(;chc_data[now_slide_no].length;){
+                    chc_data[now_slide_no].pop()
+                    ans_data[now_slide_no].pop()
+                }
+                console.log(chc_data)
+                console.log(ans_data)
+                chart_class_lst[now_slide_no].update()
+                
                 q = question_obj[current_slide.nextElementSibling.id]
                 socket.emit("question", q)
-                chc_list = []
-                ans_list = []
             }
             else {
                 socket.emit("end_voting")
@@ -324,40 +344,37 @@
         }
 
         function previous_slide() {
+            now_slide_no-=1
+            
+            /* 戻ったときは締め切り
             if (current_slide.previousElementSibling.classList.contains("vote")) {
-                chart_count -= 1
-                chart = charts[chart_count]
                 q = question_obj[current_slide.previousElementSibling.id]
                 socket.emit("question", q)
             }
+            */
+            socket.emit("end_voting")
             current_slide.previousElementSibling.style.display = "flex"
             current_slide = current_slide.previousElementSibling
         }
 
 
-        chart_class = null
         socket.on("answer", function (e) {
-            index = chc_list.indexOf(e)
+            index = chc_data[now_slide_no].indexOf(e)
             if (index < 0) {
-                chc_list.push(e)
-                ans_list.push(1)
+                chc_data[now_slide_no].push(e)
+                ans_data[now_slide_no].push(1)
             } else {
-                ans_list[index] += 1
+                ans_data[now_slide_no][index] += 1
             }
-            console.log(chart_class)
-            if (!chart_class) {
-                chart_class = Drow(chart.getContext("2d"), "sample", chc_list, ans_list, "pie")
-            } else {
-                chart_class.update()
-            }
+            chart_class_lst[now_slide_no].update()
+            
         })
 
         socket.on("redo", function (e) {
-            index = chc_list.indexOf(e)
-            ans_list[index] -= 1
-            chart_class.update()
+            index = chc_data[now_slide_no].indexOf(e)
+            ans_data[now_slide_no][index] -= 1
+            chart_class_lst[now_slide_no].update()
         })
-
         socket.on("comment", function (e) {
             if (comment_mode == 1) {//ニコニコ
                 if (e.length > 32) {
@@ -371,7 +388,7 @@
                 document.body.appendChild(p)
             }
 
-            //Vtuber風のdivにも（仮にdisplay:noenでも）追加
+            //Vtuber風のdivにも（仮にdisplay:noneでも）追加
             p = document.createElement("p")
             p.innerHTML = e
             vtuber_like_comment_div = document.getElementById('vtuber_like_comment_div')
