@@ -1,5 +1,5 @@
 fs_input=document.getElementById('font-size')
-fs_input.addEventListener('change',()=>{
+fs_input.addEventListener('input',()=>{
   (nowPointing||document.getElementById(current_slide_id)).style.fontSize=fs_input.value+'px'
   fs_input.nextElementSibling.nextElementSibling.innerText=fs_input.value+'px'
 })
@@ -53,12 +53,12 @@ for(i=0;i<close_btns.length;i++){
 }
 
 
-document.getElementById('change-background-color').addEventListener('change',function(){
+document.getElementById('change-background-color').addEventListener('input',function(){
   this.previousElementSibling .style.color=this.value;
   (nowPointing||document.getElementById(current_slide_id)).style.backgroundColor=this.value
 })
 
-document.getElementById('change-font-color').addEventListener('change',function(){
+document.getElementById('change-font-color').addEventListener('input',function(){
   this.previousElementSibling .style.color=this.value;
   (nowPointing||document.getElementById(current_slide_id)).style.color=this.value
 })
