@@ -54,11 +54,11 @@ for(i=0;i<close_btns.length;i++){
 
 
 document.getElementById('change-background-color').addEventListener('input',function(){
-  this.previousElementSibling .style.color=this.value;
+  this.previousElementSibling.style.color=this.value;
   (nowPointing||document.getElementById(current_slide_id)).style.backgroundColor=this.value
 })
 
 document.getElementById('change-font-color').addEventListener('input',function(){
-  this.previousElementSibling .style.color=this.value;
+  this.previousElementSibling.style.color=this.value;
   (nowPointing||document.getElementById(current_slide_id)).style.color=this.value
 })

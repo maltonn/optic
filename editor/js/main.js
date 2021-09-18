@@ -12,6 +12,7 @@ document.getElementById('editor').addEventListener('click', (e) => {
 var isWaitingDouble = false
 
 function Selecting(target) {
+  console.log(target)
   if (nowPointing) {
     nowPointing.style.outline = ""
   }
@@ -26,8 +27,11 @@ function Selecting(target) {
   nowPointing = target
   nowPointing.style.outline = "2px dotted black"
 
-  document.getElementById('change-background-color').previousElementSibling.style.color=target.style.backgroundColor|'black'
-  document.getElementById('change-font-color').previousElementSibling.style.color=target.style.color|'black'
+  document.getElementById('change-background-color').previousElementSibling.style.color=target.style.backgroundColor||'black'
+
+  document.getElementById('change-font-color').previousElementSibling.style.color=target.style.color||'black'
+  console.log(target)
+  console.log(target.style.color)
 
   if(target.tagName=='P'){
     document.getElementById('font-size-div').style.display='block'
