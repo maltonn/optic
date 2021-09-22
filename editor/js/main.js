@@ -52,6 +52,7 @@ document.getElementById('new-slide-btn').addEventListener('click', () => {
 function SwitchSlide(slide_id) {
   Selecting(null)
   let preview = document.getElementById(current_slide_id).cloneNode(true)
+
   preview.id = current_slide_id + "-clone"
   let preview_div = document.getElementById(current_slide_id + "-clone-div")
   DeleteAllChild(preview_div)
@@ -74,13 +75,18 @@ function SwitchSlide(slide_id) {
     slide_count++
     let new_slide = document.createElement('section')
     new_slide.id = "slide" + slide_count
+    console.log(preview.style.backgroundColor)
+    new_slide.style.backgroundColor=preview.style.backgroundColor
     new_slide.classList.add('card-panel')
+    /*
     for (i = 0; i < theme_elms.length; i++) {
       let elm = theme_elms[i].cloneNode(true)
       elm.classList.add('draggable', 'theme-elm')
       AddClickEvent(elm)
       new_slide.appendChild(elm)
     }
+    */
+
     editor.appendChild(new_slide)
     current_slide_id = "slide" + slide_count
     let new_preview_div = document.createElement('div')

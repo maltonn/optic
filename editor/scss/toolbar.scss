@@ -1,15 +1,15 @@
 @import 'variables';
 #toolbar{
-  z-index: 999;
+  z-index: 120;
   h1{
     position: absolute;
     margin: 8px;
     width:50%;
     font-size:5vh;
-    z-index: 999;
+    z-index: 120;
   }
-  .btn{
-    float: right;
-    margin:8px;
+  label{
+    color: white;
   }
+
 }

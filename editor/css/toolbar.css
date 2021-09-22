@@ -20,18 +20,17 @@ for i,var in enumerate(var_lst):
 
 */
 #toolbar {
-  z-index: 999;
+  z-index: 120;
 }
 #toolbar h1 {
   position: absolute;
   margin: 8px;
   width: 50%;
   font-size: 5vh;
-  z-index: 999;
+  z-index: 120;
 }
-#toolbar .btn {
-  float: right;
-  margin: 8px;
+#toolbar label {
+  color: white;
 }
 
 /*# sourceMappingURL=toolbar.css.map */
