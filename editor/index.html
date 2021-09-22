@@ -14,8 +14,9 @@
   <link rel="stylesheet" href="css/editor.css">
   <link rel="stylesheet" href="css/slide.css">
   <link rel="stylesheet" href="css/sidebar.css">
-  <style id="theme_style"></style>
-</head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=Kaisei+HarunoUmi&family=New+Tegomin&family=Sawarabi+Mincho&family=Train+One&display=swap" rel="stylesheet"></head>
 
 <body>
   <i id="export" class="material-icons tooltipped medium " data-position="top" data-tooltip="Export">forward</i>
@@ -69,9 +70,16 @@
 
           <div id='font-size-div' class="input-field">
             <p>フォントサイズ</p>
-            <input id='font-size' type="range" id="test5" min="0" max="200" />
+            <input id='font-size' type="range" id="test5" min="0" max="500" />
             <p class='range-display'></p>
           </div>
+
+          <div id='font-select-div' class="input-field col s12">
+            <select id='font-select'>
+              <option id='default-font-option' value="" selected disabled>フォントを選択</option>
+            </select>
+          </div>
+
         </div>
 
 
@@ -153,8 +161,7 @@
         </ul>
 
       </div>
-
-
+      <!--
       <div id="theme-selection" class="full">
         <i class="material-icons close">chevron_right</i>
         <h4>テーマを選択</h4>
@@ -169,6 +176,7 @@
         </div>
       </div>
     </div>
+    -->
   </div>
   <a id="download" class="none" href="#" download="slide.html">自動的にダウンロードされない場合</a>
 

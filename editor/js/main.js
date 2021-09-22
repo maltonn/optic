@@ -25,12 +25,15 @@ function Selecting(target) {
   }
   nowPointing = target
   nowPointing.style.outline = "2px dotted black"
-
+  
   document.getElementById('change-background-color').previousElementSibling.style.color=target.style.backgroundColor||'black'
-
+  
   document.getElementById('change-font-color').previousElementSibling.style.color=target.style.color||'black'
 
   if(target.tagName=='P'){
+
+    document.getElementById('font-select').value=target.style.fontFamily||''
+    
     document.getElementById('font-size-div').style.display='block'
     fs_input=document.getElementById('font-size')
     fsize=target.style.fontSize?target.style.fontSize.slice(0,target.style.fontSize.length-2):'40'

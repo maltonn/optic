@@ -62,3 +62,8 @@ document.getElementById('change-font-color').addEventListener('input',function()
   this.previousElementSibling.style.color=this.value;
   (nowPointing||document.getElementById(current_slide_id)).style.color=this.value
 })
+
+
+document.getElementById('font-select').addEventListener('change',function(){
+  (nowPointing||document.getElementById(current_slide_id)).style.fontFamily=this.value
+})
