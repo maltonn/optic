@@ -76,7 +76,7 @@ document.getElementById('add-p').addEventListener('click', () => {
       return
     }
     div.innerHTML=input_str
-    document.getElementById(current_slide_id).appendChild(div)
-    Selecting(div)
+    document.getElementById(current_slide_id).appendChild(div.childNodes)
+    Selecting(div.childNodes[0])
     document.getElementById('add-html-setting').style.transform='translateX(100%)'
   })
