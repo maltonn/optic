@@ -76,7 +76,18 @@ document.getElementById('add-p').addEventListener('click', () => {
       return
     }
     div.innerHTML=input_str
-    document.getElementById(current_slide_id).appendChild(div.childNodes)
-    Selecting(div.childNodes[0])
+    for(elm of div.childNodes){
+      document.getElementById(current_slide_id).appendChild(elm)
+      try{
+        elm.classList.add('draggable','resizeable')
+        if(['H1','H2','P'].includes(elm.tagName)){
+          elm.setAttribute('contenteditable',true)
+        }
+        AddClickEvent(elm)
+      }catch{
+        
+      }
+    }
     document.getElementById('add-html-setting').style.transform='translateX(100%)'
+    document.getElementById('html_textarea').value=''
   })
