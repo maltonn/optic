@@ -1,5 +1,5 @@
 ddb = document.getElementById('download-div-black')
-req_origin = 'https://maltonn.github.io/optic'
+req_origin = 'https://optic-malton.netlify.app/'
 socket_origin = 'https://websocket-maltonn8.an.r.appspot.com'
 function Export() { 
     Selecting(null)

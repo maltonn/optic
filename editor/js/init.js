@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
     'train one':'Train One',
     'ハチ 丸pop':'Hachi Maru Pop',
     'New テゴミン':'New Tegomin',
-    'キウイ丸':'Kiwi+Maru',
+    'キウイ丸':'Kiwi Maru',
   }
   font_select=document.getElementById('font-select')
   Object.keys(font_dic).forEach(function (key) {

@@ -33,7 +33,7 @@ const io = require("socket.io")(server, {//cors許可
 });
 
 app.get('/', (req, res) => {
-  res.send('OPTIC Websocket server : see https://maltonn.github.io/optic/editor/')
+  res.send('OPTIC Websocket server : see https://optic-malton.netlify.app/editor/')
 })
 /*
 io.on('connection', socket => {
