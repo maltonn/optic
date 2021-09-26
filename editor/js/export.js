@@ -1,6 +1,6 @@
 ddb = document.getElementById('download-div-black')
 req_origin = 'https://optic-malton.netlify.app/'
-socket_origin = 'https://websocket-maltonn8.an.r.appspot.com'
+socket_origin = 'https://optic-malton.herokuapp.com'
 function Export() { 
     Selecting(null)
     //編集中のスライドをclone-divに落とす
