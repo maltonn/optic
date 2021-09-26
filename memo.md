@@ -2,7 +2,7 @@
 
 client/
 editor/
-はgithub.ioに
+はnetlifyに
 
 server/
 はGoogle app engineに
