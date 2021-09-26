@@ -6,7 +6,7 @@ try{
     params['r']=window.prompt('コードを入力')
 }
 req_origin='https://optic-malton.herokuapp.com'
-socket = io(`${req_origin}/c?r='${params['r']}'`);
+socket = io(`${req_origin}/c?r=${params['r']}`);
 if (params['r']){
     socket.emit('room',params['r'])
 }else{
