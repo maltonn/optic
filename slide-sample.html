@@ -223,7 +223,7 @@
             </div>
             <div id="vtuber_like_comment_div" class="draggable resizable" style="display: none;"></div>
         
-            <section id="top_slide" style="z-index: 100;"><img src="https://chart.apis.google.com/chart?chs=400x400&cht=qr&chl=https://optic-malton.netlify.app//client?r=PZRQ">
+            <section id="top_slide" style="z-index: 100;"><img src="https://chart.apis.google.com/chart?chs=400x400&cht=qr&chl=https://optic-malton.netlify.app/client?r=PZRQ">
                 <p>[→] to start</p>
             </section>
             <section id="slide1" class=""><p class="draggable" contenteditable="true" style="font-size: 100px;">Hello World!</p></section><section id="slide2" class="vote"><canvas width="400" height="400" class="chart draggable resizable" style="position: absolute; transform: translate(-14.1946px, 36.5619px);" data-x="-14.194602857975132" data-y="36.561856100921254"></canvas><p class="draggable" contenteditable="true" style=""></p><p class="draggable" contenteditable="true" style="position: absolute; transform: translate(-444.724px, 16.1607px); font-size: 97px; font-family: &quot;Hachi Maru Pop&quot;; color: rgb(43, 112, 222);" data-x="-444.7243897892237" data-y="16.160701537374106">投票→</p></section>
@@ -237,7 +237,7 @@
             <script src="https://cdn.jsdelivr.net/npm/interactjs@next/dist/interact.min.js"></script>
             <script>question_obj = {"slide2":["投票タイトル","選択肢1","選択肢2"]}</script>
             <script>
-                socket = io("https://optic-malton.herokuapp.com/d?r=PZRQ");
+                socket = io("http://localhost:8080/d?r=PZRQ");
                 socket.emit("room", "PZRQ");
                 var current_slide = top_slide;
         
