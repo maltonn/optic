@@ -64,7 +64,7 @@ function ShowChoice(choices){
 
 send.addEventListener('click', function () {
     if(comment.value!=""){
-        socket.emit('comment', {'comment':comment.value,'username':username.value})
+        socket.emit('comment', {'comment':comment.value,'username':'anonymous'/*username.value*/})
     }
     comment.value = ""
 });
