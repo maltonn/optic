@@ -1,5 +1,5 @@
 ddb = document.getElementById('download-div-black')
-req_origin = 'https://optic-malton.netlify.app/'
+req_origin = 'https://optic-malton.netlify.app'
 socket_origin = 'https://optic-malton.herokuapp.com'
 function Export() { 
     Selecting(null)
